@@ -24,7 +24,7 @@ import (
 
 	"github.com/nlnwa/maalfrid/pkg/version"
 	"github.com/nlnwa/pkg/log"
-	"github.com/nlnwa/sigridr/logfmt"
+	"github.com/nlnwa/pkg/logfmt"
 )
 
 var debug bool
