@@ -2,11 +2,11 @@ package maalfrid
 
 import (
 	"context"
+	"strings"
 
 	"github.com/kapsteur/franco"
 
 	"github.com/nlnwa/maalfrid/api"
-	"strings"
 )
 
 type maalfridApi struct{}
