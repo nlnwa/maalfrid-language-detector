@@ -10,4 +10,4 @@ LABEL maintainer="nettarkivet@nb.no"
 COPY --from=0 /go/src/github.com/nlnwa/maalfrid/maalfrid /
 EXPOSE 8672
 ENTRYPOINT ["/maalfrid"]
-
+CMD ["serve"]
