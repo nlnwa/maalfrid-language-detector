@@ -91,9 +91,12 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/nlnwa/sigridr"
-  packages = ["logfmt"]
-  revision = "872641fe9c6558fa25009467823ceb5444d234db"
+  name = "github.com/nlnwa/pkg"
+  packages = [
+    "log",
+    "logfmt"
+  ]
+  revision = "6cd5e7c5a7682bf6a2ed622a721a6caa4b062c84"
 
 [[projects]]
   name = "github.com/pelletier/go-toml"
@@ -237,6 +240,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "1c3ea569f0f7f4159735d9f5a2523b3a7a55daffffcdeb30f587b1de7de9c05c"
+  inputs-digest = "7cf1f21c3d5ec6df3a82edef6c39f9400670eb8d8beb6b654570f7f1d971a470"
   solver-name = "gps-cdcl"
   solver-version = 1
