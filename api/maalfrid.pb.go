@@ -2,7 +2,7 @@
 // source: maalfrid.proto
 
 /*
-Package maalfrid is a generated protocol buffer package.
+Package api is a generated protocol buffer package.
 
 It is generated from these files:
 	maalfrid.proto
@@ -10,8 +10,9 @@ It is generated from these files:
 It has these top-level messages:
 	DetectLanguageRequest
 	DetectLanguageReply
+	Language
 */
-package maalfrid
+package api
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
@@ -34,499 +35,498 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // Language codes in ISO 639-3:2007 format
-type DetectLanguageReply_Language int32
+type Code int32
 
 const (
-	DetectLanguageReply_UNKNOWN DetectLanguageReply_Language = 0
-	DetectLanguageReply_NOB     DetectLanguageReply_Language = 1
-	DetectLanguageReply_NNO     DetectLanguageReply_Language = 2
-	DetectLanguageReply_DAN     DetectLanguageReply_Language = 3
-	DetectLanguageReply_SWE     DetectLanguageReply_Language = 4
-	DetectLanguageReply_ENG     DetectLanguageReply_Language = 5
-	DetectLanguageReply_FRA     DetectLanguageReply_Language = 6
-	DetectLanguageReply_SMA     DetectLanguageReply_Language = 7
-	DetectLanguageReply_SMJ     DetectLanguageReply_Language = 8
-	DetectLanguageReply_SME     DetectLanguageReply_Language = 9
-	DetectLanguageReply_ABK     DetectLanguageReply_Language = 10
-	DetectLanguageReply_AAR     DetectLanguageReply_Language = 11
-	DetectLanguageReply_AFR     DetectLanguageReply_Language = 12
-	DetectLanguageReply_AKA     DetectLanguageReply_Language = 13
-	DetectLanguageReply_SQI     DetectLanguageReply_Language = 14
-	DetectLanguageReply_AMH     DetectLanguageReply_Language = 15
-	DetectLanguageReply_ARA     DetectLanguageReply_Language = 16
-	DetectLanguageReply_ARG     DetectLanguageReply_Language = 17
-	DetectLanguageReply_HYE     DetectLanguageReply_Language = 18
-	DetectLanguageReply_ASM     DetectLanguageReply_Language = 19
-	DetectLanguageReply_AVA     DetectLanguageReply_Language = 20
-	DetectLanguageReply_AVE     DetectLanguageReply_Language = 21
-	DetectLanguageReply_AYM     DetectLanguageReply_Language = 22
-	DetectLanguageReply_AZE     DetectLanguageReply_Language = 23
-	DetectLanguageReply_BAM     DetectLanguageReply_Language = 24
-	DetectLanguageReply_BAK     DetectLanguageReply_Language = 25
-	DetectLanguageReply_EUS     DetectLanguageReply_Language = 26
-	DetectLanguageReply_BEL     DetectLanguageReply_Language = 27
-	DetectLanguageReply_BEN     DetectLanguageReply_Language = 28
-	DetectLanguageReply_BER     DetectLanguageReply_Language = 29
-	DetectLanguageReply_BIS     DetectLanguageReply_Language = 30
-	DetectLanguageReply_BOS     DetectLanguageReply_Language = 31
-	DetectLanguageReply_BRE     DetectLanguageReply_Language = 32
-	DetectLanguageReply_BUL     DetectLanguageReply_Language = 33
-	DetectLanguageReply_MYA     DetectLanguageReply_Language = 34
-	DetectLanguageReply_CAT     DetectLanguageReply_Language = 35
-	DetectLanguageReply_CHA     DetectLanguageReply_Language = 36
-	DetectLanguageReply_CHE     DetectLanguageReply_Language = 37
-	DetectLanguageReply_NYA     DetectLanguageReply_Language = 38
-	DetectLanguageReply_ZHO     DetectLanguageReply_Language = 39
-	DetectLanguageReply_CHV     DetectLanguageReply_Language = 40
-	DetectLanguageReply_COR     DetectLanguageReply_Language = 41
-	DetectLanguageReply_COS     DetectLanguageReply_Language = 42
-	DetectLanguageReply_CRE     DetectLanguageReply_Language = 43
-	DetectLanguageReply_HRV     DetectLanguageReply_Language = 44
-	DetectLanguageReply_CES     DetectLanguageReply_Language = 45
-	DetectLanguageReply_PRS     DetectLanguageReply_Language = 46
-	DetectLanguageReply_DIV     DetectLanguageReply_Language = 47
-	DetectLanguageReply_NLD     DetectLanguageReply_Language = 48
-	DetectLanguageReply_DZO     DetectLanguageReply_Language = 49
-	DetectLanguageReply_EPO     DetectLanguageReply_Language = 50
-	DetectLanguageReply_EST     DetectLanguageReply_Language = 51
-	DetectLanguageReply_EWE     DetectLanguageReply_Language = 52
-	DetectLanguageReply_FAO     DetectLanguageReply_Language = 53
-	DetectLanguageReply_FIJ     DetectLanguageReply_Language = 54
-	DetectLanguageReply_FIN     DetectLanguageReply_Language = 55
-	DetectLanguageReply_FUL     DetectLanguageReply_Language = 56
-	DetectLanguageReply_GLG     DetectLanguageReply_Language = 57
-	DetectLanguageReply_KAT     DetectLanguageReply_Language = 58
-	DetectLanguageReply_DEU     DetectLanguageReply_Language = 59
-	DetectLanguageReply_ELL     DetectLanguageReply_Language = 60
-	DetectLanguageReply_GRN     DetectLanguageReply_Language = 61
-	DetectLanguageReply_GUJ     DetectLanguageReply_Language = 62
-	DetectLanguageReply_HAT     DetectLanguageReply_Language = 63
-	DetectLanguageReply_HAU     DetectLanguageReply_Language = 64
-	DetectLanguageReply_HEB     DetectLanguageReply_Language = 65
-	DetectLanguageReply_HER     DetectLanguageReply_Language = 66
-	DetectLanguageReply_HIN     DetectLanguageReply_Language = 67
-	DetectLanguageReply_HMO     DetectLanguageReply_Language = 68
-	DetectLanguageReply_HUN     DetectLanguageReply_Language = 69
-	DetectLanguageReply_INA     DetectLanguageReply_Language = 70
-	DetectLanguageReply_IND     DetectLanguageReply_Language = 71
-	DetectLanguageReply_ILE     DetectLanguageReply_Language = 72
-	DetectLanguageReply_GLE     DetectLanguageReply_Language = 73
-	DetectLanguageReply_IBO     DetectLanguageReply_Language = 74
-	DetectLanguageReply_IPK     DetectLanguageReply_Language = 75
-	DetectLanguageReply_IDO     DetectLanguageReply_Language = 76
-	DetectLanguageReply_ISL     DetectLanguageReply_Language = 77
-	DetectLanguageReply_ITA     DetectLanguageReply_Language = 78
-	DetectLanguageReply_IKU     DetectLanguageReply_Language = 79
-	DetectLanguageReply_JPN     DetectLanguageReply_Language = 80
-	DetectLanguageReply_JAV     DetectLanguageReply_Language = 81
-	DetectLanguageReply_KAL     DetectLanguageReply_Language = 82
-	DetectLanguageReply_KAN     DetectLanguageReply_Language = 83
-	DetectLanguageReply_KAU     DetectLanguageReply_Language = 84
-	DetectLanguageReply_KAS     DetectLanguageReply_Language = 85
-	DetectLanguageReply_KAZ     DetectLanguageReply_Language = 86
-	DetectLanguageReply_KHM     DetectLanguageReply_Language = 87
-	DetectLanguageReply_KIK     DetectLanguageReply_Language = 88
-	DetectLanguageReply_KIN     DetectLanguageReply_Language = 89
-	DetectLanguageReply_KIR     DetectLanguageReply_Language = 90
-	DetectLanguageReply_KOM     DetectLanguageReply_Language = 91
-	DetectLanguageReply_KON     DetectLanguageReply_Language = 92
-	DetectLanguageReply_KOR     DetectLanguageReply_Language = 93
-	DetectLanguageReply_KUR     DetectLanguageReply_Language = 94
-	DetectLanguageReply_KUA     DetectLanguageReply_Language = 95
-	DetectLanguageReply_LAT     DetectLanguageReply_Language = 96
-	DetectLanguageReply_LTZ     DetectLanguageReply_Language = 97
-	DetectLanguageReply_LUG     DetectLanguageReply_Language = 98
-	DetectLanguageReply_LIM     DetectLanguageReply_Language = 99
-	DetectLanguageReply_LIN     DetectLanguageReply_Language = 100
-	DetectLanguageReply_LAO     DetectLanguageReply_Language = 101
-	DetectLanguageReply_LIT     DetectLanguageReply_Language = 102
-	DetectLanguageReply_LUB     DetectLanguageReply_Language = 103
-	DetectLanguageReply_LAV     DetectLanguageReply_Language = 104
-	DetectLanguageReply_GLV     DetectLanguageReply_Language = 105
-	DetectLanguageReply_MKD     DetectLanguageReply_Language = 106
-	DetectLanguageReply_MLG     DetectLanguageReply_Language = 107
-	DetectLanguageReply_MSA     DetectLanguageReply_Language = 108
-	DetectLanguageReply_MAL     DetectLanguageReply_Language = 109
-	DetectLanguageReply_MLT     DetectLanguageReply_Language = 110
-	DetectLanguageReply_MRI     DetectLanguageReply_Language = 111
-	DetectLanguageReply_MAR     DetectLanguageReply_Language = 112
-	DetectLanguageReply_MAH     DetectLanguageReply_Language = 113
-	DetectLanguageReply_MON     DetectLanguageReply_Language = 114
-	DetectLanguageReply_NAU     DetectLanguageReply_Language = 115
-	DetectLanguageReply_NAV     DetectLanguageReply_Language = 116
-	DetectLanguageReply_NDE     DetectLanguageReply_Language = 117
-	DetectLanguageReply_NSO     DetectLanguageReply_Language = 118
-	DetectLanguageReply_NEP     DetectLanguageReply_Language = 119
-	DetectLanguageReply_NDO     DetectLanguageReply_Language = 120
-	DetectLanguageReply_NOR     DetectLanguageReply_Language = 121
-	DetectLanguageReply_III     DetectLanguageReply_Language = 122
-	DetectLanguageReply_NBL     DetectLanguageReply_Language = 123
-	DetectLanguageReply_OCI     DetectLanguageReply_Language = 124
-	DetectLanguageReply_OJI     DetectLanguageReply_Language = 125
-	DetectLanguageReply_CHU     DetectLanguageReply_Language = 126
-	DetectLanguageReply_ORM     DetectLanguageReply_Language = 127
-	DetectLanguageReply_ORI     DetectLanguageReply_Language = 128
-	DetectLanguageReply_OSS     DetectLanguageReply_Language = 129
-	DetectLanguageReply_PAN     DetectLanguageReply_Language = 130
-	DetectLanguageReply_PLI     DetectLanguageReply_Language = 131
-	DetectLanguageReply_FAS     DetectLanguageReply_Language = 132
-	DetectLanguageReply_POL     DetectLanguageReply_Language = 133
-	DetectLanguageReply_PUS     DetectLanguageReply_Language = 134
-	DetectLanguageReply_POR     DetectLanguageReply_Language = 135
-	DetectLanguageReply_QUE     DetectLanguageReply_Language = 136
-	DetectLanguageReply_ROH     DetectLanguageReply_Language = 137
-	DetectLanguageReply_RUN     DetectLanguageReply_Language = 138
-	DetectLanguageReply_RON     DetectLanguageReply_Language = 139
-	DetectLanguageReply_RUS     DetectLanguageReply_Language = 140
-	DetectLanguageReply_SAN     DetectLanguageReply_Language = 141
-	DetectLanguageReply_SRD     DetectLanguageReply_Language = 142
-	DetectLanguageReply_SND     DetectLanguageReply_Language = 143
-	DetectLanguageReply_SMO     DetectLanguageReply_Language = 144
-	DetectLanguageReply_SAG     DetectLanguageReply_Language = 145
-	DetectLanguageReply_SRP     DetectLanguageReply_Language = 146
-	DetectLanguageReply_GLA     DetectLanguageReply_Language = 147
-	DetectLanguageReply_SNA     DetectLanguageReply_Language = 148
-	DetectLanguageReply_SIN     DetectLanguageReply_Language = 149
-	DetectLanguageReply_SLK     DetectLanguageReply_Language = 150
-	DetectLanguageReply_SLV     DetectLanguageReply_Language = 151
-	DetectLanguageReply_SOM     DetectLanguageReply_Language = 152
-	DetectLanguageReply_SOT     DetectLanguageReply_Language = 153
-	DetectLanguageReply_SPA     DetectLanguageReply_Language = 154
-	DetectLanguageReply_SUN     DetectLanguageReply_Language = 155
-	DetectLanguageReply_SWA     DetectLanguageReply_Language = 156
-	DetectLanguageReply_SSW     DetectLanguageReply_Language = 157
-	DetectLanguageReply_TAM     DetectLanguageReply_Language = 158
-	DetectLanguageReply_TEL     DetectLanguageReply_Language = 159
-	DetectLanguageReply_TGK     DetectLanguageReply_Language = 160
-	DetectLanguageReply_THA     DetectLanguageReply_Language = 161
-	DetectLanguageReply_TIR     DetectLanguageReply_Language = 162
-	DetectLanguageReply_BOD     DetectLanguageReply_Language = 163
-	DetectLanguageReply_TUK     DetectLanguageReply_Language = 164
-	DetectLanguageReply_TGL     DetectLanguageReply_Language = 165
-	DetectLanguageReply_FIL     DetectLanguageReply_Language = 166
-	DetectLanguageReply_TSN     DetectLanguageReply_Language = 167
-	DetectLanguageReply_TON     DetectLanguageReply_Language = 168
-	DetectLanguageReply_TUR     DetectLanguageReply_Language = 169
-	DetectLanguageReply_TSO     DetectLanguageReply_Language = 170
-	DetectLanguageReply_TAT     DetectLanguageReply_Language = 171
-	DetectLanguageReply_TWI     DetectLanguageReply_Language = 172
-	DetectLanguageReply_TAH     DetectLanguageReply_Language = 173
-	DetectLanguageReply_UIG     DetectLanguageReply_Language = 174
-	DetectLanguageReply_UKR     DetectLanguageReply_Language = 175
-	DetectLanguageReply_URD     DetectLanguageReply_Language = 176
-	DetectLanguageReply_UZB     DetectLanguageReply_Language = 177
-	DetectLanguageReply_VEN     DetectLanguageReply_Language = 178
-	DetectLanguageReply_VIE     DetectLanguageReply_Language = 179
-	DetectLanguageReply_VOL     DetectLanguageReply_Language = 180
-	DetectLanguageReply_WLN     DetectLanguageReply_Language = 181
-	DetectLanguageReply_CYM     DetectLanguageReply_Language = 182
-	DetectLanguageReply_WOL     DetectLanguageReply_Language = 183
-	DetectLanguageReply_FRY     DetectLanguageReply_Language = 184
-	DetectLanguageReply_XHO     DetectLanguageReply_Language = 185
-	DetectLanguageReply_YID     DetectLanguageReply_Language = 186
-	DetectLanguageReply_YOR     DetectLanguageReply_Language = 187
-	DetectLanguageReply_ZHA     DetectLanguageReply_Language = 188
-	DetectLanguageReply_ZUL     DetectLanguageReply_Language = 189
-	DetectLanguageReply_ACE     DetectLanguageReply_Language = 190
-	DetectLanguageReply_ACH     DetectLanguageReply_Language = 191
-	DetectLanguageReply_ADA     DetectLanguageReply_Language = 192
-	DetectLanguageReply_ADY     DetectLanguageReply_Language = 193
-	DetectLanguageReply_AFA     DetectLanguageReply_Language = 194
-	DetectLanguageReply_AFH     DetectLanguageReply_Language = 195
-	DetectLanguageReply_AIN     DetectLanguageReply_Language = 196
-	DetectLanguageReply_AKK     DetectLanguageReply_Language = 197
-	DetectLanguageReply_ALE     DetectLanguageReply_Language = 198
-	DetectLanguageReply_ALG     DetectLanguageReply_Language = 199
-	DetectLanguageReply_ALT     DetectLanguageReply_Language = 200
-	DetectLanguageReply_ANG     DetectLanguageReply_Language = 201
-	DetectLanguageReply_ANP     DetectLanguageReply_Language = 202
-	DetectLanguageReply_APA     DetectLanguageReply_Language = 203
-	DetectLanguageReply_ARC     DetectLanguageReply_Language = 204
-	DetectLanguageReply_ARN     DetectLanguageReply_Language = 205
-	DetectLanguageReply_ARP     DetectLanguageReply_Language = 206
-	DetectLanguageReply_ART     DetectLanguageReply_Language = 207
-	DetectLanguageReply_ARW     DetectLanguageReply_Language = 208
-	DetectLanguageReply_AST     DetectLanguageReply_Language = 209
-	DetectLanguageReply_ATH     DetectLanguageReply_Language = 210
-	DetectLanguageReply_AUS     DetectLanguageReply_Language = 211
-	DetectLanguageReply_AWA     DetectLanguageReply_Language = 212
-	DetectLanguageReply_BAD     DetectLanguageReply_Language = 213
-	DetectLanguageReply_BAI     DetectLanguageReply_Language = 214
-	DetectLanguageReply_BAL     DetectLanguageReply_Language = 215
-	DetectLanguageReply_BAN     DetectLanguageReply_Language = 216
-	DetectLanguageReply_BAS     DetectLanguageReply_Language = 217
-	DetectLanguageReply_BAT     DetectLanguageReply_Language = 218
-	DetectLanguageReply_BEJ     DetectLanguageReply_Language = 219
-	DetectLanguageReply_BEM     DetectLanguageReply_Language = 220
-	DetectLanguageReply_BHO     DetectLanguageReply_Language = 221
-	DetectLanguageReply_BIK     DetectLanguageReply_Language = 222
-	DetectLanguageReply_BIN     DetectLanguageReply_Language = 223
-	DetectLanguageReply_BLA     DetectLanguageReply_Language = 224
-	DetectLanguageReply_BNT     DetectLanguageReply_Language = 225
-	DetectLanguageReply_BRA     DetectLanguageReply_Language = 226
-	DetectLanguageReply_BTK     DetectLanguageReply_Language = 227
-	DetectLanguageReply_BUA     DetectLanguageReply_Language = 228
-	DetectLanguageReply_BUG     DetectLanguageReply_Language = 229
-	DetectLanguageReply_BYN     DetectLanguageReply_Language = 230
-	DetectLanguageReply_CAD     DetectLanguageReply_Language = 231
-	DetectLanguageReply_CAI     DetectLanguageReply_Language = 232
-	DetectLanguageReply_CAR     DetectLanguageReply_Language = 233
-	DetectLanguageReply_CAU     DetectLanguageReply_Language = 234
-	DetectLanguageReply_CEB     DetectLanguageReply_Language = 235
-	DetectLanguageReply_CEL     DetectLanguageReply_Language = 236
-	DetectLanguageReply_CHB     DetectLanguageReply_Language = 237
-	DetectLanguageReply_CHG     DetectLanguageReply_Language = 238
-	DetectLanguageReply_CHK     DetectLanguageReply_Language = 239
-	DetectLanguageReply_CHM     DetectLanguageReply_Language = 240
-	DetectLanguageReply_CHN     DetectLanguageReply_Language = 241
-	DetectLanguageReply_CHO     DetectLanguageReply_Language = 242
-	DetectLanguageReply_CHP     DetectLanguageReply_Language = 243
-	DetectLanguageReply_CHR     DetectLanguageReply_Language = 244
-	DetectLanguageReply_CHY     DetectLanguageReply_Language = 245
-	DetectLanguageReply_CMC     DetectLanguageReply_Language = 246
-	DetectLanguageReply_COP     DetectLanguageReply_Language = 247
-	DetectLanguageReply_CPE     DetectLanguageReply_Language = 248
-	DetectLanguageReply_CPF     DetectLanguageReply_Language = 249
-	DetectLanguageReply_CPP     DetectLanguageReply_Language = 250
-	DetectLanguageReply_CRH     DetectLanguageReply_Language = 251
-	DetectLanguageReply_CRP     DetectLanguageReply_Language = 252
-	DetectLanguageReply_CSB     DetectLanguageReply_Language = 253
-	DetectLanguageReply_CUS     DetectLanguageReply_Language = 254
-	DetectLanguageReply_DAK     DetectLanguageReply_Language = 255
-	DetectLanguageReply_DAR     DetectLanguageReply_Language = 256
-	DetectLanguageReply_DAY     DetectLanguageReply_Language = 257
-	DetectLanguageReply_DEL     DetectLanguageReply_Language = 258
-	DetectLanguageReply_DEN     DetectLanguageReply_Language = 259
-	DetectLanguageReply_DGR     DetectLanguageReply_Language = 260
-	DetectLanguageReply_DIN     DetectLanguageReply_Language = 261
-	DetectLanguageReply_DOI     DetectLanguageReply_Language = 262
-	DetectLanguageReply_DRA     DetectLanguageReply_Language = 263
-	DetectLanguageReply_DSB     DetectLanguageReply_Language = 264
-	DetectLanguageReply_DUA     DetectLanguageReply_Language = 265
-	DetectLanguageReply_DUM     DetectLanguageReply_Language = 266
-	DetectLanguageReply_DYU     DetectLanguageReply_Language = 267
-	DetectLanguageReply_EFI     DetectLanguageReply_Language = 268
-	DetectLanguageReply_EGY     DetectLanguageReply_Language = 269
-	DetectLanguageReply_EKA     DetectLanguageReply_Language = 270
-	DetectLanguageReply_ELX     DetectLanguageReply_Language = 271
-	DetectLanguageReply_ENM     DetectLanguageReply_Language = 272
-	DetectLanguageReply_EWO     DetectLanguageReply_Language = 273
-	DetectLanguageReply_FAN     DetectLanguageReply_Language = 274
-	DetectLanguageReply_FAT     DetectLanguageReply_Language = 275
-	DetectLanguageReply_FIU     DetectLanguageReply_Language = 276
-	DetectLanguageReply_FON     DetectLanguageReply_Language = 277
-	DetectLanguageReply_FRM     DetectLanguageReply_Language = 278
-	DetectLanguageReply_FRO     DetectLanguageReply_Language = 279
-	DetectLanguageReply_FRR     DetectLanguageReply_Language = 280
-	DetectLanguageReply_FRS     DetectLanguageReply_Language = 281
-	DetectLanguageReply_FUR     DetectLanguageReply_Language = 282
-	DetectLanguageReply_GAA     DetectLanguageReply_Language = 283
-	DetectLanguageReply_GAY     DetectLanguageReply_Language = 284
-	DetectLanguageReply_GBA     DetectLanguageReply_Language = 285
-	DetectLanguageReply_GEM     DetectLanguageReply_Language = 286
-	DetectLanguageReply_GEZ     DetectLanguageReply_Language = 287
-	DetectLanguageReply_GIL     DetectLanguageReply_Language = 288
-	DetectLanguageReply_GMH     DetectLanguageReply_Language = 289
-	DetectLanguageReply_GOH     DetectLanguageReply_Language = 290
-	DetectLanguageReply_GON     DetectLanguageReply_Language = 291
-	DetectLanguageReply_GOR     DetectLanguageReply_Language = 292
-	DetectLanguageReply_GOT     DetectLanguageReply_Language = 293
-	DetectLanguageReply_GRB     DetectLanguageReply_Language = 294
-	DetectLanguageReply_GRC     DetectLanguageReply_Language = 295
-	DetectLanguageReply_GSW     DetectLanguageReply_Language = 296
-	DetectLanguageReply_GWI     DetectLanguageReply_Language = 297
-	DetectLanguageReply_HAI     DetectLanguageReply_Language = 298
-	DetectLanguageReply_HAW     DetectLanguageReply_Language = 299
-	DetectLanguageReply_HIL     DetectLanguageReply_Language = 300
-	DetectLanguageReply_HIM     DetectLanguageReply_Language = 301
-	DetectLanguageReply_HIT     DetectLanguageReply_Language = 302
-	DetectLanguageReply_HMN     DetectLanguageReply_Language = 303
-	DetectLanguageReply_HSB     DetectLanguageReply_Language = 304
-	DetectLanguageReply_HUP     DetectLanguageReply_Language = 305
-	DetectLanguageReply_IBA     DetectLanguageReply_Language = 306
-	DetectLanguageReply_IJO     DetectLanguageReply_Language = 307
-	DetectLanguageReply_ILO     DetectLanguageReply_Language = 308
-	DetectLanguageReply_INC     DetectLanguageReply_Language = 309
-	DetectLanguageReply_INE     DetectLanguageReply_Language = 310
-	DetectLanguageReply_INH     DetectLanguageReply_Language = 311
-	DetectLanguageReply_IRA     DetectLanguageReply_Language = 312
-	DetectLanguageReply_IRO     DetectLanguageReply_Language = 313
-	DetectLanguageReply_JBO     DetectLanguageReply_Language = 314
-	DetectLanguageReply_JPR     DetectLanguageReply_Language = 315
-	DetectLanguageReply_JRB     DetectLanguageReply_Language = 316
-	DetectLanguageReply_KAA     DetectLanguageReply_Language = 317
-	DetectLanguageReply_KAB     DetectLanguageReply_Language = 318
-	DetectLanguageReply_KAC     DetectLanguageReply_Language = 319
-	DetectLanguageReply_KAM     DetectLanguageReply_Language = 320
-	DetectLanguageReply_KAR     DetectLanguageReply_Language = 321
-	DetectLanguageReply_KAW     DetectLanguageReply_Language = 322
-	DetectLanguageReply_KBD     DetectLanguageReply_Language = 323
-	DetectLanguageReply_KHA     DetectLanguageReply_Language = 324
-	DetectLanguageReply_KHI     DetectLanguageReply_Language = 325
-	DetectLanguageReply_KHO     DetectLanguageReply_Language = 326
-	DetectLanguageReply_KMB     DetectLanguageReply_Language = 327
-	DetectLanguageReply_KOK     DetectLanguageReply_Language = 328
-	DetectLanguageReply_KOS     DetectLanguageReply_Language = 329
-	DetectLanguageReply_KPE     DetectLanguageReply_Language = 330
-	DetectLanguageReply_KRC     DetectLanguageReply_Language = 331
-	DetectLanguageReply_KRL     DetectLanguageReply_Language = 332
-	DetectLanguageReply_KRO     DetectLanguageReply_Language = 333
-	DetectLanguageReply_KRU     DetectLanguageReply_Language = 334
-	DetectLanguageReply_KUM     DetectLanguageReply_Language = 335
-	DetectLanguageReply_KUT     DetectLanguageReply_Language = 336
-	DetectLanguageReply_LAD     DetectLanguageReply_Language = 337
-	DetectLanguageReply_LAH     DetectLanguageReply_Language = 338
-	DetectLanguageReply_LAM     DetectLanguageReply_Language = 339
-	DetectLanguageReply_LEZ     DetectLanguageReply_Language = 340
-	DetectLanguageReply_LOL     DetectLanguageReply_Language = 341
-	DetectLanguageReply_LOZ     DetectLanguageReply_Language = 342
-	DetectLanguageReply_LUA     DetectLanguageReply_Language = 343
-	DetectLanguageReply_LUI     DetectLanguageReply_Language = 344
-	DetectLanguageReply_LUN     DetectLanguageReply_Language = 345
-	DetectLanguageReply_LUO     DetectLanguageReply_Language = 346
-	DetectLanguageReply_LUS     DetectLanguageReply_Language = 347
-	DetectLanguageReply_MAD     DetectLanguageReply_Language = 348
-	DetectLanguageReply_MAG     DetectLanguageReply_Language = 349
-	DetectLanguageReply_MAI     DetectLanguageReply_Language = 350
-	DetectLanguageReply_MAK     DetectLanguageReply_Language = 351
-	DetectLanguageReply_MAN     DetectLanguageReply_Language = 352
-	DetectLanguageReply_MAP     DetectLanguageReply_Language = 353
-	DetectLanguageReply_MAS     DetectLanguageReply_Language = 354
-	DetectLanguageReply_MDF     DetectLanguageReply_Language = 355
-	DetectLanguageReply_MDR     DetectLanguageReply_Language = 356
-	DetectLanguageReply_MEN     DetectLanguageReply_Language = 357
-	DetectLanguageReply_MGA     DetectLanguageReply_Language = 358
-	DetectLanguageReply_MIC     DetectLanguageReply_Language = 359
-	DetectLanguageReply_MIN     DetectLanguageReply_Language = 360
-	DetectLanguageReply_MIS     DetectLanguageReply_Language = 361
-	DetectLanguageReply_MKH     DetectLanguageReply_Language = 362
-	DetectLanguageReply_MNC     DetectLanguageReply_Language = 363
-	DetectLanguageReply_MNI     DetectLanguageReply_Language = 364
-	DetectLanguageReply_MNO     DetectLanguageReply_Language = 365
-	DetectLanguageReply_MOH     DetectLanguageReply_Language = 366
-	DetectLanguageReply_MOS     DetectLanguageReply_Language = 367
-	DetectLanguageReply_MUL     DetectLanguageReply_Language = 368
-	DetectLanguageReply_MUN     DetectLanguageReply_Language = 369
-	DetectLanguageReply_MUS     DetectLanguageReply_Language = 370
-	DetectLanguageReply_MWL     DetectLanguageReply_Language = 371
-	DetectLanguageReply_MWR     DetectLanguageReply_Language = 372
-	DetectLanguageReply_MYN     DetectLanguageReply_Language = 373
-	DetectLanguageReply_MYV     DetectLanguageReply_Language = 374
-	DetectLanguageReply_NAH     DetectLanguageReply_Language = 375
-	DetectLanguageReply_NAI     DetectLanguageReply_Language = 376
-	DetectLanguageReply_NAP     DetectLanguageReply_Language = 377
-	DetectLanguageReply_NDS     DetectLanguageReply_Language = 378
-	DetectLanguageReply_NEW     DetectLanguageReply_Language = 379
-	DetectLanguageReply_NIA     DetectLanguageReply_Language = 380
-	DetectLanguageReply_NIC     DetectLanguageReply_Language = 381
-	DetectLanguageReply_NIU     DetectLanguageReply_Language = 382
-	DetectLanguageReply_NOG     DetectLanguageReply_Language = 383
-	DetectLanguageReply_NON     DetectLanguageReply_Language = 384
-	DetectLanguageReply_NQO     DetectLanguageReply_Language = 385
-	DetectLanguageReply_NUB     DetectLanguageReply_Language = 386
-	DetectLanguageReply_NWC     DetectLanguageReply_Language = 387
-	DetectLanguageReply_NYM     DetectLanguageReply_Language = 388
-	DetectLanguageReply_NYN     DetectLanguageReply_Language = 389
-	DetectLanguageReply_NYO     DetectLanguageReply_Language = 390
-	DetectLanguageReply_NZI     DetectLanguageReply_Language = 391
-	DetectLanguageReply_OSA     DetectLanguageReply_Language = 392
-	DetectLanguageReply_OTA     DetectLanguageReply_Language = 393
-	DetectLanguageReply_OTO     DetectLanguageReply_Language = 394
-	DetectLanguageReply_PAA     DetectLanguageReply_Language = 395
-	DetectLanguageReply_PAG     DetectLanguageReply_Language = 396
-	DetectLanguageReply_PAL     DetectLanguageReply_Language = 397
-	DetectLanguageReply_PAM     DetectLanguageReply_Language = 398
-	DetectLanguageReply_PAP     DetectLanguageReply_Language = 399
-	DetectLanguageReply_PAU     DetectLanguageReply_Language = 400
-	DetectLanguageReply_PEO     DetectLanguageReply_Language = 401
-	DetectLanguageReply_PHI     DetectLanguageReply_Language = 402
-	DetectLanguageReply_PHN     DetectLanguageReply_Language = 403
-	DetectLanguageReply_PON     DetectLanguageReply_Language = 404
-	DetectLanguageReply_PRA     DetectLanguageReply_Language = 405
-	DetectLanguageReply_PRO     DetectLanguageReply_Language = 406
-	DetectLanguageReply_RAJ     DetectLanguageReply_Language = 407
-	DetectLanguageReply_RAP     DetectLanguageReply_Language = 408
-	DetectLanguageReply_RAR     DetectLanguageReply_Language = 409
-	DetectLanguageReply_ROA     DetectLanguageReply_Language = 410
-	DetectLanguageReply_ROM     DetectLanguageReply_Language = 411
-	DetectLanguageReply_RUP     DetectLanguageReply_Language = 412
-	DetectLanguageReply_SAD     DetectLanguageReply_Language = 413
-	DetectLanguageReply_SAH     DetectLanguageReply_Language = 414
-	DetectLanguageReply_SAI     DetectLanguageReply_Language = 415
-	DetectLanguageReply_SAL     DetectLanguageReply_Language = 416
-	DetectLanguageReply_SAM     DetectLanguageReply_Language = 417
-	DetectLanguageReply_SAS     DetectLanguageReply_Language = 418
-	DetectLanguageReply_SAT     DetectLanguageReply_Language = 419
-	DetectLanguageReply_SCN     DetectLanguageReply_Language = 420
-	DetectLanguageReply_SCO     DetectLanguageReply_Language = 421
-	DetectLanguageReply_SEL     DetectLanguageReply_Language = 422
-	DetectLanguageReply_SEM     DetectLanguageReply_Language = 423
-	DetectLanguageReply_SGA     DetectLanguageReply_Language = 424
-	DetectLanguageReply_SGN     DetectLanguageReply_Language = 425
-	DetectLanguageReply_SHN     DetectLanguageReply_Language = 426
-	DetectLanguageReply_SID     DetectLanguageReply_Language = 427
-	DetectLanguageReply_SIO     DetectLanguageReply_Language = 428
-	DetectLanguageReply_SIT     DetectLanguageReply_Language = 429
-	DetectLanguageReply_SLA     DetectLanguageReply_Language = 430
-	DetectLanguageReply_SMI     DetectLanguageReply_Language = 431
-	DetectLanguageReply_SMN     DetectLanguageReply_Language = 432
-	DetectLanguageReply_SMS     DetectLanguageReply_Language = 433
-	DetectLanguageReply_SNK     DetectLanguageReply_Language = 434
-	DetectLanguageReply_SOG     DetectLanguageReply_Language = 435
-	DetectLanguageReply_SON     DetectLanguageReply_Language = 436
-	DetectLanguageReply_SRN     DetectLanguageReply_Language = 437
-	DetectLanguageReply_SRR     DetectLanguageReply_Language = 438
-	DetectLanguageReply_SSA     DetectLanguageReply_Language = 439
-	DetectLanguageReply_SUK     DetectLanguageReply_Language = 440
-	DetectLanguageReply_SUS     DetectLanguageReply_Language = 441
-	DetectLanguageReply_SUX     DetectLanguageReply_Language = 442
-	DetectLanguageReply_SYC     DetectLanguageReply_Language = 443
-	DetectLanguageReply_SYR     DetectLanguageReply_Language = 444
-	DetectLanguageReply_TAI     DetectLanguageReply_Language = 445
-	DetectLanguageReply_TEM     DetectLanguageReply_Language = 446
-	DetectLanguageReply_TER     DetectLanguageReply_Language = 447
-	DetectLanguageReply_TET     DetectLanguageReply_Language = 448
-	DetectLanguageReply_TIG     DetectLanguageReply_Language = 449
-	DetectLanguageReply_TIV     DetectLanguageReply_Language = 450
-	DetectLanguageReply_TKL     DetectLanguageReply_Language = 451
-	DetectLanguageReply_TLH     DetectLanguageReply_Language = 452
-	DetectLanguageReply_TLI     DetectLanguageReply_Language = 453
-	DetectLanguageReply_TMH     DetectLanguageReply_Language = 454
-	DetectLanguageReply_TOG     DetectLanguageReply_Language = 455
-	DetectLanguageReply_TPI     DetectLanguageReply_Language = 456
-	DetectLanguageReply_TSI     DetectLanguageReply_Language = 457
-	DetectLanguageReply_TUM     DetectLanguageReply_Language = 458
-	DetectLanguageReply_TUP     DetectLanguageReply_Language = 459
-	DetectLanguageReply_TUT     DetectLanguageReply_Language = 460
-	DetectLanguageReply_TVL     DetectLanguageReply_Language = 461
-	DetectLanguageReply_TYV     DetectLanguageReply_Language = 462
-	DetectLanguageReply_UDM     DetectLanguageReply_Language = 463
-	DetectLanguageReply_UGA     DetectLanguageReply_Language = 464
-	DetectLanguageReply_UMB     DetectLanguageReply_Language = 465
-	DetectLanguageReply_UND     DetectLanguageReply_Language = 466
-	DetectLanguageReply_VAI     DetectLanguageReply_Language = 467
-	DetectLanguageReply_VOT     DetectLanguageReply_Language = 468
-	DetectLanguageReply_WAK     DetectLanguageReply_Language = 469
-	DetectLanguageReply_WAL     DetectLanguageReply_Language = 470
-	DetectLanguageReply_WAR     DetectLanguageReply_Language = 471
-	DetectLanguageReply_WAS     DetectLanguageReply_Language = 472
-	DetectLanguageReply_WEN     DetectLanguageReply_Language = 473
-	DetectLanguageReply_XAL     DetectLanguageReply_Language = 474
-	DetectLanguageReply_YAO     DetectLanguageReply_Language = 475
-	DetectLanguageReply_YAP     DetectLanguageReply_Language = 476
-	DetectLanguageReply_YPK     DetectLanguageReply_Language = 477
-	DetectLanguageReply_ZAP     DetectLanguageReply_Language = 478
-	DetectLanguageReply_ZBL     DetectLanguageReply_Language = 479
-	DetectLanguageReply_ZEN     DetectLanguageReply_Language = 480
-	DetectLanguageReply_ZGH     DetectLanguageReply_Language = 481
-	DetectLanguageReply_ZND     DetectLanguageReply_Language = 482
-	DetectLanguageReply_ZUN     DetectLanguageReply_Language = 483
-	DetectLanguageReply_ZXX     DetectLanguageReply_Language = 484
-	DetectLanguageReply_ZZA     DetectLanguageReply_Language = 485
+	Code_UND Code = 0
+	Code_NOB Code = 1
+	Code_NNO Code = 2
+	Code_DAN Code = 3
+	Code_SWE Code = 4
+	Code_ENG Code = 5
+	Code_FRA Code = 6
+	Code_SMA Code = 7
+	Code_SMJ Code = 8
+	Code_SME Code = 9
+	Code_ABK Code = 10
+	Code_AAR Code = 11
+	Code_AFR Code = 12
+	Code_AKA Code = 13
+	Code_SQI Code = 14
+	Code_AMH Code = 15
+	Code_ARA Code = 16
+	Code_ARG Code = 17
+	Code_HYE Code = 18
+	Code_ASM Code = 19
+	Code_AVA Code = 20
+	Code_AVE Code = 21
+	Code_AYM Code = 22
+	Code_AZE Code = 23
+	Code_BAM Code = 24
+	Code_BAK Code = 25
+	Code_EUS Code = 26
+	Code_BEL Code = 27
+	Code_BEN Code = 28
+	Code_BER Code = 29
+	Code_BIS Code = 30
+	Code_BOS Code = 31
+	Code_BRE Code = 32
+	Code_BUL Code = 33
+	Code_MYA Code = 34
+	Code_CAT Code = 35
+	Code_CHA Code = 36
+	Code_CHE Code = 37
+	Code_NYA Code = 38
+	Code_ZHO Code = 39
+	Code_CHV Code = 40
+	Code_COR Code = 41
+	Code_COS Code = 42
+	Code_CRE Code = 43
+	Code_HRV Code = 44
+	Code_CES Code = 45
+	Code_PRS Code = 46
+	Code_DIV Code = 47
+	Code_NLD Code = 48
+	Code_DZO Code = 49
+	Code_EPO Code = 50
+	Code_EST Code = 51
+	Code_EWE Code = 52
+	Code_FAO Code = 53
+	Code_FIJ Code = 54
+	Code_FIN Code = 55
+	Code_FUL Code = 56
+	Code_GLG Code = 57
+	Code_KAT Code = 58
+	Code_DEU Code = 59
+	Code_ELL Code = 60
+	Code_GRN Code = 61
+	Code_GUJ Code = 62
+	Code_HAT Code = 63
+	Code_HAU Code = 64
+	Code_HEB Code = 65
+	Code_HER Code = 66
+	Code_HIN Code = 67
+	Code_HMO Code = 68
+	Code_HUN Code = 69
+	Code_INA Code = 70
+	Code_IND Code = 71
+	Code_ILE Code = 72
+	Code_GLE Code = 73
+	Code_IBO Code = 74
+	Code_IPK Code = 75
+	Code_IDO Code = 76
+	Code_ISL Code = 77
+	Code_ITA Code = 78
+	Code_IKU Code = 79
+	Code_JPN Code = 80
+	Code_JAV Code = 81
+	Code_KAL Code = 82
+	Code_KAN Code = 83
+	Code_KAU Code = 84
+	Code_KAS Code = 85
+	Code_KAZ Code = 86
+	Code_KHM Code = 87
+	Code_KIK Code = 88
+	Code_KIN Code = 89
+	Code_KIR Code = 90
+	Code_KOM Code = 91
+	Code_KON Code = 92
+	Code_KOR Code = 93
+	Code_KUR Code = 94
+	Code_KUA Code = 95
+	Code_LAT Code = 96
+	Code_LTZ Code = 97
+	Code_LUG Code = 98
+	Code_LIM Code = 99
+	Code_LIN Code = 100
+	Code_LAO Code = 101
+	Code_LIT Code = 102
+	Code_LUB Code = 103
+	Code_LAV Code = 104
+	Code_GLV Code = 105
+	Code_MKD Code = 106
+	Code_MLG Code = 107
+	Code_MSA Code = 108
+	Code_MAL Code = 109
+	Code_MLT Code = 110
+	Code_MRI Code = 111
+	Code_MAR Code = 112
+	Code_MAH Code = 113
+	Code_MON Code = 114
+	Code_NAU Code = 115
+	Code_NAV Code = 116
+	Code_NDE Code = 117
+	Code_NSO Code = 118
+	Code_NEP Code = 119
+	Code_NDO Code = 120
+	Code_NOR Code = 121
+	Code_III Code = 122
+	Code_NBL Code = 123
+	Code_OCI Code = 124
+	Code_OJI Code = 125
+	Code_CHU Code = 126
+	Code_ORM Code = 127
+	Code_ORI Code = 128
+	Code_OSS Code = 129
+	Code_PAN Code = 130
+	Code_PLI Code = 131
+	Code_FAS Code = 132
+	Code_POL Code = 133
+	Code_PUS Code = 134
+	Code_POR Code = 135
+	Code_QUE Code = 136
+	Code_ROH Code = 137
+	Code_RUN Code = 138
+	Code_RON Code = 139
+	Code_RUS Code = 140
+	Code_SAN Code = 141
+	Code_SRD Code = 142
+	Code_SND Code = 143
+	Code_SMO Code = 144
+	Code_SAG Code = 145
+	Code_SRP Code = 146
+	Code_GLA Code = 147
+	Code_SNA Code = 148
+	Code_SIN Code = 149
+	Code_SLK Code = 150
+	Code_SLV Code = 151
+	Code_SOM Code = 152
+	Code_SOT Code = 153
+	Code_SPA Code = 154
+	Code_SUN Code = 155
+	Code_SWA Code = 156
+	Code_SSW Code = 157
+	Code_TAM Code = 158
+	Code_TEL Code = 159
+	Code_TGK Code = 160
+	Code_THA Code = 161
+	Code_TIR Code = 162
+	Code_BOD Code = 163
+	Code_TUK Code = 164
+	Code_TGL Code = 165
+	Code_FIL Code = 166
+	Code_TSN Code = 167
+	Code_TON Code = 168
+	Code_TUR Code = 169
+	Code_TSO Code = 170
+	Code_TAT Code = 171
+	Code_TWI Code = 172
+	Code_TAH Code = 173
+	Code_UIG Code = 174
+	Code_UKR Code = 175
+	Code_URD Code = 176
+	Code_UZB Code = 177
+	Code_VEN Code = 178
+	Code_VIE Code = 179
+	Code_VOL Code = 180
+	Code_WLN Code = 181
+	Code_CYM Code = 182
+	Code_WOL Code = 183
+	Code_FRY Code = 184
+	Code_XHO Code = 185
+	Code_YID Code = 186
+	Code_YOR Code = 187
+	Code_ZHA Code = 188
+	Code_ZUL Code = 189
+	Code_ACE Code = 190
+	Code_ACH Code = 191
+	Code_ADA Code = 192
+	Code_ADY Code = 193
+	Code_AFA Code = 194
+	Code_AFH Code = 195
+	Code_AIN Code = 196
+	Code_AKK Code = 197
+	Code_ALE Code = 198
+	Code_ALG Code = 199
+	Code_ALT Code = 200
+	Code_ANG Code = 201
+	Code_ANP Code = 202
+	Code_APA Code = 203
+	Code_ARC Code = 204
+	Code_ARN Code = 205
+	Code_ARP Code = 206
+	Code_ART Code = 207
+	Code_ARW Code = 208
+	Code_AST Code = 209
+	Code_ATH Code = 210
+	Code_AUS Code = 211
+	Code_AWA Code = 212
+	Code_BAD Code = 213
+	Code_BAI Code = 214
+	Code_BAL Code = 215
+	Code_BAN Code = 216
+	Code_BAS Code = 217
+	Code_BAT Code = 218
+	Code_BEJ Code = 219
+	Code_BEM Code = 220
+	Code_BHO Code = 221
+	Code_BIK Code = 222
+	Code_BIN Code = 223
+	Code_BLA Code = 224
+	Code_BNT Code = 225
+	Code_BRA Code = 226
+	Code_BTK Code = 227
+	Code_BUA Code = 228
+	Code_BUG Code = 229
+	Code_BYN Code = 230
+	Code_CAD Code = 231
+	Code_CAI Code = 232
+	Code_CAR Code = 233
+	Code_CAU Code = 234
+	Code_CEB Code = 235
+	Code_CEL Code = 236
+	Code_CHB Code = 237
+	Code_CHG Code = 238
+	Code_CHK Code = 239
+	Code_CHM Code = 240
+	Code_CHN Code = 241
+	Code_CHO Code = 242
+	Code_CHP Code = 243
+	Code_CHR Code = 244
+	Code_CHY Code = 245
+	Code_CMC Code = 246
+	Code_COP Code = 247
+	Code_CPE Code = 248
+	Code_CPF Code = 249
+	Code_CPP Code = 250
+	Code_CRH Code = 251
+	Code_CRP Code = 252
+	Code_CSB Code = 253
+	Code_CUS Code = 254
+	Code_DAK Code = 255
+	Code_DAR Code = 256
+	Code_DAY Code = 257
+	Code_DEL Code = 258
+	Code_DEN Code = 259
+	Code_DGR Code = 260
+	Code_DIN Code = 261
+	Code_DOI Code = 262
+	Code_DRA Code = 263
+	Code_DSB Code = 264
+	Code_DUA Code = 265
+	Code_DUM Code = 266
+	Code_DYU Code = 267
+	Code_EFI Code = 268
+	Code_EGY Code = 269
+	Code_EKA Code = 270
+	Code_ELX Code = 271
+	Code_ENM Code = 272
+	Code_EWO Code = 273
+	Code_FAN Code = 274
+	Code_FAT Code = 275
+	Code_FIU Code = 276
+	Code_FON Code = 277
+	Code_FRM Code = 278
+	Code_FRO Code = 279
+	Code_FRR Code = 280
+	Code_FRS Code = 281
+	Code_FUR Code = 282
+	Code_GAA Code = 283
+	Code_GAY Code = 284
+	Code_GBA Code = 285
+	Code_GEM Code = 286
+	Code_GEZ Code = 287
+	Code_GIL Code = 288
+	Code_GMH Code = 289
+	Code_GOH Code = 290
+	Code_GON Code = 291
+	Code_GOR Code = 292
+	Code_GOT Code = 293
+	Code_GRB Code = 294
+	Code_GRC Code = 295
+	Code_GSW Code = 296
+	Code_GWI Code = 297
+	Code_HAI Code = 298
+	Code_HAW Code = 299
+	Code_HIL Code = 300
+	Code_HIM Code = 301
+	Code_HIT Code = 302
+	Code_HMN Code = 303
+	Code_HSB Code = 304
+	Code_HUP Code = 305
+	Code_IBA Code = 306
+	Code_IJO Code = 307
+	Code_ILO Code = 308
+	Code_INC Code = 309
+	Code_INE Code = 310
+	Code_INH Code = 311
+	Code_IRA Code = 312
+	Code_IRO Code = 313
+	Code_JBO Code = 314
+	Code_JPR Code = 315
+	Code_JRB Code = 316
+	Code_KAA Code = 317
+	Code_KAB Code = 318
+	Code_KAC Code = 319
+	Code_KAM Code = 320
+	Code_KAR Code = 321
+	Code_KAW Code = 322
+	Code_KBD Code = 323
+	Code_KHA Code = 324
+	Code_KHI Code = 325
+	Code_KHO Code = 326
+	Code_KMB Code = 327
+	Code_KOK Code = 328
+	Code_KOS Code = 329
+	Code_KPE Code = 330
+	Code_KRC Code = 331
+	Code_KRL Code = 332
+	Code_KRO Code = 333
+	Code_KRU Code = 334
+	Code_KUM Code = 335
+	Code_KUT Code = 336
+	Code_LAD Code = 337
+	Code_LAH Code = 338
+	Code_LAM Code = 339
+	Code_LEZ Code = 340
+	Code_LOL Code = 341
+	Code_LOZ Code = 342
+	Code_LUA Code = 343
+	Code_LUI Code = 344
+	Code_LUN Code = 345
+	Code_LUO Code = 346
+	Code_LUS Code = 347
+	Code_MAD Code = 348
+	Code_MAG Code = 349
+	Code_MAI Code = 350
+	Code_MAK Code = 351
+	Code_MAN Code = 352
+	Code_MAP Code = 353
+	Code_MAS Code = 354
+	Code_MDF Code = 355
+	Code_MDR Code = 356
+	Code_MEN Code = 357
+	Code_MGA Code = 358
+	Code_MIC Code = 359
+	Code_MIN Code = 360
+	Code_MIS Code = 361
+	Code_MKH Code = 362
+	Code_MNC Code = 363
+	Code_MNI Code = 364
+	Code_MNO Code = 365
+	Code_MOH Code = 366
+	Code_MOS Code = 367
+	Code_MUL Code = 368
+	Code_MUN Code = 369
+	Code_MUS Code = 370
+	Code_MWL Code = 371
+	Code_MWR Code = 372
+	Code_MYN Code = 373
+	Code_MYV Code = 374
+	Code_NAH Code = 375
+	Code_NAI Code = 376
+	Code_NAP Code = 377
+	Code_NDS Code = 378
+	Code_NEW Code = 379
+	Code_NIA Code = 380
+	Code_NIC Code = 381
+	Code_NIU Code = 382
+	Code_NOG Code = 383
+	Code_NON Code = 384
+	Code_NQO Code = 385
+	Code_NUB Code = 386
+	Code_NWC Code = 387
+	Code_NYM Code = 388
+	Code_NYN Code = 389
+	Code_NYO Code = 390
+	Code_NZI Code = 391
+	Code_OSA Code = 392
+	Code_OTA Code = 393
+	Code_OTO Code = 394
+	Code_PAA Code = 395
+	Code_PAG Code = 396
+	Code_PAL Code = 397
+	Code_PAM Code = 398
+	Code_PAP Code = 399
+	Code_PAU Code = 400
+	Code_PEO Code = 401
+	Code_PHI Code = 402
+	Code_PHN Code = 403
+	Code_PON Code = 404
+	Code_PRA Code = 405
+	Code_PRO Code = 406
+	Code_RAJ Code = 407
+	Code_RAP Code = 408
+	Code_RAR Code = 409
+	Code_ROA Code = 410
+	Code_ROM Code = 411
+	Code_RUP Code = 412
+	Code_SAD Code = 413
+	Code_SAH Code = 414
+	Code_SAI Code = 415
+	Code_SAL Code = 416
+	Code_SAM Code = 417
+	Code_SAS Code = 418
+	Code_SAT Code = 419
+	Code_SCN Code = 420
+	Code_SCO Code = 421
+	Code_SEL Code = 422
+	Code_SEM Code = 423
+	Code_SGA Code = 424
+	Code_SGN Code = 425
+	Code_SHN Code = 426
+	Code_SID Code = 427
+	Code_SIO Code = 428
+	Code_SIT Code = 429
+	Code_SLA Code = 430
+	Code_SMI Code = 431
+	Code_SMN Code = 432
+	Code_SMS Code = 433
+	Code_SNK Code = 434
+	Code_SOG Code = 435
+	Code_SON Code = 436
+	Code_SRN Code = 437
+	Code_SRR Code = 438
+	Code_SSA Code = 439
+	Code_SUK Code = 440
+	Code_SUS Code = 441
+	Code_SUX Code = 442
+	Code_SYC Code = 443
+	Code_SYR Code = 444
+	Code_TAI Code = 445
+	Code_TEM Code = 446
+	Code_TER Code = 447
+	Code_TET Code = 448
+	Code_TIG Code = 449
+	Code_TIV Code = 450
+	Code_TKL Code = 451
+	Code_TLH Code = 452
+	Code_TLI Code = 453
+	Code_TMH Code = 454
+	Code_TOG Code = 455
+	Code_TPI Code = 456
+	Code_TSI Code = 457
+	Code_TUM Code = 458
+	Code_TUP Code = 459
+	Code_TUT Code = 460
+	Code_TVL Code = 461
+	Code_TYV Code = 462
+	Code_UDM Code = 463
+	Code_UGA Code = 464
+	Code_UMB Code = 465
+	Code_VAI Code = 466
+	Code_VOT Code = 467
+	Code_WAK Code = 468
+	Code_WAL Code = 469
+	Code_WAR Code = 470
+	Code_WAS Code = 471
+	Code_WEN Code = 472
+	Code_XAL Code = 473
+	Code_YAO Code = 474
+	Code_YAP Code = 475
+	Code_YPK Code = 476
+	Code_ZAP Code = 477
+	Code_ZBL Code = 478
+	Code_ZEN Code = 479
+	Code_ZGH Code = 480
+	Code_ZND Code = 481
+	Code_ZUN Code = 482
+	Code_ZXX Code = 483
+	Code_ZZA Code = 484
 )
 
-var DetectLanguageReply_Language_name = map[int32]string{
-	0:   "UNKNOWN",
+var Code_name = map[int32]string{
+	0:   "UND",
 	1:   "NOB",
 	2:   "NNO",
 	3:   "DAN",
@@ -992,522 +992,518 @@ var DetectLanguageReply_Language_name = map[int32]string{
 	463: "UDM",
 	464: "UGA",
 	465: "UMB",
-	466: "UND",
-	467: "VAI",
-	468: "VOT",
-	469: "WAK",
-	470: "WAL",
-	471: "WAR",
-	472: "WAS",
-	473: "WEN",
-	474: "XAL",
-	475: "YAO",
-	476: "YAP",
-	477: "YPK",
-	478: "ZAP",
-	479: "ZBL",
-	480: "ZEN",
-	481: "ZGH",
-	482: "ZND",
-	483: "ZUN",
-	484: "ZXX",
-	485: "ZZA",
+	466: "VAI",
+	467: "VOT",
+	468: "WAK",
+	469: "WAL",
+	470: "WAR",
+	471: "WAS",
+	472: "WEN",
+	473: "XAL",
+	474: "YAO",
+	475: "YAP",
+	476: "YPK",
+	477: "ZAP",
+	478: "ZBL",
+	479: "ZEN",
+	480: "ZGH",
+	481: "ZND",
+	482: "ZUN",
+	483: "ZXX",
+	484: "ZZA",
 }
-var DetectLanguageReply_Language_value = map[string]int32{
-	"UNKNOWN": 0,
-	"NOB":     1,
-	"NNO":     2,
-	"DAN":     3,
-	"SWE":     4,
-	"ENG":     5,
-	"FRA":     6,
-	"SMA":     7,
-	"SMJ":     8,
-	"SME":     9,
-	"ABK":     10,
-	"AAR":     11,
-	"AFR":     12,
-	"AKA":     13,
-	"SQI":     14,
-	"AMH":     15,
-	"ARA":     16,
-	"ARG":     17,
-	"HYE":     18,
-	"ASM":     19,
-	"AVA":     20,
-	"AVE":     21,
-	"AYM":     22,
-	"AZE":     23,
-	"BAM":     24,
-	"BAK":     25,
-	"EUS":     26,
-	"BEL":     27,
-	"BEN":     28,
-	"BER":     29,
-	"BIS":     30,
-	"BOS":     31,
-	"BRE":     32,
-	"BUL":     33,
-	"MYA":     34,
-	"CAT":     35,
-	"CHA":     36,
-	"CHE":     37,
-	"NYA":     38,
-	"ZHO":     39,
-	"CHV":     40,
-	"COR":     41,
-	"COS":     42,
-	"CRE":     43,
-	"HRV":     44,
-	"CES":     45,
-	"PRS":     46,
-	"DIV":     47,
-	"NLD":     48,
-	"DZO":     49,
-	"EPO":     50,
-	"EST":     51,
-	"EWE":     52,
-	"FAO":     53,
-	"FIJ":     54,
-	"FIN":     55,
-	"FUL":     56,
-	"GLG":     57,
-	"KAT":     58,
-	"DEU":     59,
-	"ELL":     60,
-	"GRN":     61,
-	"GUJ":     62,
-	"HAT":     63,
-	"HAU":     64,
-	"HEB":     65,
-	"HER":     66,
-	"HIN":     67,
-	"HMO":     68,
-	"HUN":     69,
-	"INA":     70,
-	"IND":     71,
-	"ILE":     72,
-	"GLE":     73,
-	"IBO":     74,
-	"IPK":     75,
-	"IDO":     76,
-	"ISL":     77,
-	"ITA":     78,
-	"IKU":     79,
-	"JPN":     80,
-	"JAV":     81,
-	"KAL":     82,
-	"KAN":     83,
-	"KAU":     84,
-	"KAS":     85,
-	"KAZ":     86,
-	"KHM":     87,
-	"KIK":     88,
-	"KIN":     89,
-	"KIR":     90,
-	"KOM":     91,
-	"KON":     92,
-	"KOR":     93,
-	"KUR":     94,
-	"KUA":     95,
-	"LAT":     96,
-	"LTZ":     97,
-	"LUG":     98,
-	"LIM":     99,
-	"LIN":     100,
-	"LAO":     101,
-	"LIT":     102,
-	"LUB":     103,
-	"LAV":     104,
-	"GLV":     105,
-	"MKD":     106,
-	"MLG":     107,
-	"MSA":     108,
-	"MAL":     109,
-	"MLT":     110,
-	"MRI":     111,
-	"MAR":     112,
-	"MAH":     113,
-	"MON":     114,
-	"NAU":     115,
-	"NAV":     116,
-	"NDE":     117,
-	"NSO":     118,
-	"NEP":     119,
-	"NDO":     120,
-	"NOR":     121,
-	"III":     122,
-	"NBL":     123,
-	"OCI":     124,
-	"OJI":     125,
-	"CHU":     126,
-	"ORM":     127,
-	"ORI":     128,
-	"OSS":     129,
-	"PAN":     130,
-	"PLI":     131,
-	"FAS":     132,
-	"POL":     133,
-	"PUS":     134,
-	"POR":     135,
-	"QUE":     136,
-	"ROH":     137,
-	"RUN":     138,
-	"RON":     139,
-	"RUS":     140,
-	"SAN":     141,
-	"SRD":     142,
-	"SND":     143,
-	"SMO":     144,
-	"SAG":     145,
-	"SRP":     146,
-	"GLA":     147,
-	"SNA":     148,
-	"SIN":     149,
-	"SLK":     150,
-	"SLV":     151,
-	"SOM":     152,
-	"SOT":     153,
-	"SPA":     154,
-	"SUN":     155,
-	"SWA":     156,
-	"SSW":     157,
-	"TAM":     158,
-	"TEL":     159,
-	"TGK":     160,
-	"THA":     161,
-	"TIR":     162,
-	"BOD":     163,
-	"TUK":     164,
-	"TGL":     165,
-	"FIL":     166,
-	"TSN":     167,
-	"TON":     168,
-	"TUR":     169,
-	"TSO":     170,
-	"TAT":     171,
-	"TWI":     172,
-	"TAH":     173,
-	"UIG":     174,
-	"UKR":     175,
-	"URD":     176,
-	"UZB":     177,
-	"VEN":     178,
-	"VIE":     179,
-	"VOL":     180,
-	"WLN":     181,
-	"CYM":     182,
-	"WOL":     183,
-	"FRY":     184,
-	"XHO":     185,
-	"YID":     186,
-	"YOR":     187,
-	"ZHA":     188,
-	"ZUL":     189,
-	"ACE":     190,
-	"ACH":     191,
-	"ADA":     192,
-	"ADY":     193,
-	"AFA":     194,
-	"AFH":     195,
-	"AIN":     196,
-	"AKK":     197,
-	"ALE":     198,
-	"ALG":     199,
-	"ALT":     200,
-	"ANG":     201,
-	"ANP":     202,
-	"APA":     203,
-	"ARC":     204,
-	"ARN":     205,
-	"ARP":     206,
-	"ART":     207,
-	"ARW":     208,
-	"AST":     209,
-	"ATH":     210,
-	"AUS":     211,
-	"AWA":     212,
-	"BAD":     213,
-	"BAI":     214,
-	"BAL":     215,
-	"BAN":     216,
-	"BAS":     217,
-	"BAT":     218,
-	"BEJ":     219,
-	"BEM":     220,
-	"BHO":     221,
-	"BIK":     222,
-	"BIN":     223,
-	"BLA":     224,
-	"BNT":     225,
-	"BRA":     226,
-	"BTK":     227,
-	"BUA":     228,
-	"BUG":     229,
-	"BYN":     230,
-	"CAD":     231,
-	"CAI":     232,
-	"CAR":     233,
-	"CAU":     234,
-	"CEB":     235,
-	"CEL":     236,
-	"CHB":     237,
-	"CHG":     238,
-	"CHK":     239,
-	"CHM":     240,
-	"CHN":     241,
-	"CHO":     242,
-	"CHP":     243,
-	"CHR":     244,
-	"CHY":     245,
-	"CMC":     246,
-	"COP":     247,
-	"CPE":     248,
-	"CPF":     249,
-	"CPP":     250,
-	"CRH":     251,
-	"CRP":     252,
-	"CSB":     253,
-	"CUS":     254,
-	"DAK":     255,
-	"DAR":     256,
-	"DAY":     257,
-	"DEL":     258,
-	"DEN":     259,
-	"DGR":     260,
-	"DIN":     261,
-	"DOI":     262,
-	"DRA":     263,
-	"DSB":     264,
-	"DUA":     265,
-	"DUM":     266,
-	"DYU":     267,
-	"EFI":     268,
-	"EGY":     269,
-	"EKA":     270,
-	"ELX":     271,
-	"ENM":     272,
-	"EWO":     273,
-	"FAN":     274,
-	"FAT":     275,
-	"FIU":     276,
-	"FON":     277,
-	"FRM":     278,
-	"FRO":     279,
-	"FRR":     280,
-	"FRS":     281,
-	"FUR":     282,
-	"GAA":     283,
-	"GAY":     284,
-	"GBA":     285,
-	"GEM":     286,
-	"GEZ":     287,
-	"GIL":     288,
-	"GMH":     289,
-	"GOH":     290,
-	"GON":     291,
-	"GOR":     292,
-	"GOT":     293,
-	"GRB":     294,
-	"GRC":     295,
-	"GSW":     296,
-	"GWI":     297,
-	"HAI":     298,
-	"HAW":     299,
-	"HIL":     300,
-	"HIM":     301,
-	"HIT":     302,
-	"HMN":     303,
-	"HSB":     304,
-	"HUP":     305,
-	"IBA":     306,
-	"IJO":     307,
-	"ILO":     308,
-	"INC":     309,
-	"INE":     310,
-	"INH":     311,
-	"IRA":     312,
-	"IRO":     313,
-	"JBO":     314,
-	"JPR":     315,
-	"JRB":     316,
-	"KAA":     317,
-	"KAB":     318,
-	"KAC":     319,
-	"KAM":     320,
-	"KAR":     321,
-	"KAW":     322,
-	"KBD":     323,
-	"KHA":     324,
-	"KHI":     325,
-	"KHO":     326,
-	"KMB":     327,
-	"KOK":     328,
-	"KOS":     329,
-	"KPE":     330,
-	"KRC":     331,
-	"KRL":     332,
-	"KRO":     333,
-	"KRU":     334,
-	"KUM":     335,
-	"KUT":     336,
-	"LAD":     337,
-	"LAH":     338,
-	"LAM":     339,
-	"LEZ":     340,
-	"LOL":     341,
-	"LOZ":     342,
-	"LUA":     343,
-	"LUI":     344,
-	"LUN":     345,
-	"LUO":     346,
-	"LUS":     347,
-	"MAD":     348,
-	"MAG":     349,
-	"MAI":     350,
-	"MAK":     351,
-	"MAN":     352,
-	"MAP":     353,
-	"MAS":     354,
-	"MDF":     355,
-	"MDR":     356,
-	"MEN":     357,
-	"MGA":     358,
-	"MIC":     359,
-	"MIN":     360,
-	"MIS":     361,
-	"MKH":     362,
-	"MNC":     363,
-	"MNI":     364,
-	"MNO":     365,
-	"MOH":     366,
-	"MOS":     367,
-	"MUL":     368,
-	"MUN":     369,
-	"MUS":     370,
-	"MWL":     371,
-	"MWR":     372,
-	"MYN":     373,
-	"MYV":     374,
-	"NAH":     375,
-	"NAI":     376,
-	"NAP":     377,
-	"NDS":     378,
-	"NEW":     379,
-	"NIA":     380,
-	"NIC":     381,
-	"NIU":     382,
-	"NOG":     383,
-	"NON":     384,
-	"NQO":     385,
-	"NUB":     386,
-	"NWC":     387,
-	"NYM":     388,
-	"NYN":     389,
-	"NYO":     390,
-	"NZI":     391,
-	"OSA":     392,
-	"OTA":     393,
-	"OTO":     394,
-	"PAA":     395,
-	"PAG":     396,
-	"PAL":     397,
-	"PAM":     398,
-	"PAP":     399,
-	"PAU":     400,
-	"PEO":     401,
-	"PHI":     402,
-	"PHN":     403,
-	"PON":     404,
-	"PRA":     405,
-	"PRO":     406,
-	"RAJ":     407,
-	"RAP":     408,
-	"RAR":     409,
-	"ROA":     410,
-	"ROM":     411,
-	"RUP":     412,
-	"SAD":     413,
-	"SAH":     414,
-	"SAI":     415,
-	"SAL":     416,
-	"SAM":     417,
-	"SAS":     418,
-	"SAT":     419,
-	"SCN":     420,
-	"SCO":     421,
-	"SEL":     422,
-	"SEM":     423,
-	"SGA":     424,
-	"SGN":     425,
-	"SHN":     426,
-	"SID":     427,
-	"SIO":     428,
-	"SIT":     429,
-	"SLA":     430,
-	"SMI":     431,
-	"SMN":     432,
-	"SMS":     433,
-	"SNK":     434,
-	"SOG":     435,
-	"SON":     436,
-	"SRN":     437,
-	"SRR":     438,
-	"SSA":     439,
-	"SUK":     440,
-	"SUS":     441,
-	"SUX":     442,
-	"SYC":     443,
-	"SYR":     444,
-	"TAI":     445,
-	"TEM":     446,
-	"TER":     447,
-	"TET":     448,
-	"TIG":     449,
-	"TIV":     450,
-	"TKL":     451,
-	"TLH":     452,
-	"TLI":     453,
-	"TMH":     454,
-	"TOG":     455,
-	"TPI":     456,
-	"TSI":     457,
-	"TUM":     458,
-	"TUP":     459,
-	"TUT":     460,
-	"TVL":     461,
-	"TYV":     462,
-	"UDM":     463,
-	"UGA":     464,
-	"UMB":     465,
-	"UND":     466,
-	"VAI":     467,
-	"VOT":     468,
-	"WAK":     469,
-	"WAL":     470,
-	"WAR":     471,
-	"WAS":     472,
-	"WEN":     473,
-	"XAL":     474,
-	"YAO":     475,
-	"YAP":     476,
-	"YPK":     477,
-	"ZAP":     478,
-	"ZBL":     479,
-	"ZEN":     480,
-	"ZGH":     481,
-	"ZND":     482,
-	"ZUN":     483,
-	"ZXX":     484,
-	"ZZA":     485,
+var Code_value = map[string]int32{
+	"UND": 0,
+	"NOB": 1,
+	"NNO": 2,
+	"DAN": 3,
+	"SWE": 4,
+	"ENG": 5,
+	"FRA": 6,
+	"SMA": 7,
+	"SMJ": 8,
+	"SME": 9,
+	"ABK": 10,
+	"AAR": 11,
+	"AFR": 12,
+	"AKA": 13,
+	"SQI": 14,
+	"AMH": 15,
+	"ARA": 16,
+	"ARG": 17,
+	"HYE": 18,
+	"ASM": 19,
+	"AVA": 20,
+	"AVE": 21,
+	"AYM": 22,
+	"AZE": 23,
+	"BAM": 24,
+	"BAK": 25,
+	"EUS": 26,
+	"BEL": 27,
+	"BEN": 28,
+	"BER": 29,
+	"BIS": 30,
+	"BOS": 31,
+	"BRE": 32,
+	"BUL": 33,
+	"MYA": 34,
+	"CAT": 35,
+	"CHA": 36,
+	"CHE": 37,
+	"NYA": 38,
+	"ZHO": 39,
+	"CHV": 40,
+	"COR": 41,
+	"COS": 42,
+	"CRE": 43,
+	"HRV": 44,
+	"CES": 45,
+	"PRS": 46,
+	"DIV": 47,
+	"NLD": 48,
+	"DZO": 49,
+	"EPO": 50,
+	"EST": 51,
+	"EWE": 52,
+	"FAO": 53,
+	"FIJ": 54,
+	"FIN": 55,
+	"FUL": 56,
+	"GLG": 57,
+	"KAT": 58,
+	"DEU": 59,
+	"ELL": 60,
+	"GRN": 61,
+	"GUJ": 62,
+	"HAT": 63,
+	"HAU": 64,
+	"HEB": 65,
+	"HER": 66,
+	"HIN": 67,
+	"HMO": 68,
+	"HUN": 69,
+	"INA": 70,
+	"IND": 71,
+	"ILE": 72,
+	"GLE": 73,
+	"IBO": 74,
+	"IPK": 75,
+	"IDO": 76,
+	"ISL": 77,
+	"ITA": 78,
+	"IKU": 79,
+	"JPN": 80,
+	"JAV": 81,
+	"KAL": 82,
+	"KAN": 83,
+	"KAU": 84,
+	"KAS": 85,
+	"KAZ": 86,
+	"KHM": 87,
+	"KIK": 88,
+	"KIN": 89,
+	"KIR": 90,
+	"KOM": 91,
+	"KON": 92,
+	"KOR": 93,
+	"KUR": 94,
+	"KUA": 95,
+	"LAT": 96,
+	"LTZ": 97,
+	"LUG": 98,
+	"LIM": 99,
+	"LIN": 100,
+	"LAO": 101,
+	"LIT": 102,
+	"LUB": 103,
+	"LAV": 104,
+	"GLV": 105,
+	"MKD": 106,
+	"MLG": 107,
+	"MSA": 108,
+	"MAL": 109,
+	"MLT": 110,
+	"MRI": 111,
+	"MAR": 112,
+	"MAH": 113,
+	"MON": 114,
+	"NAU": 115,
+	"NAV": 116,
+	"NDE": 117,
+	"NSO": 118,
+	"NEP": 119,
+	"NDO": 120,
+	"NOR": 121,
+	"III": 122,
+	"NBL": 123,
+	"OCI": 124,
+	"OJI": 125,
+	"CHU": 126,
+	"ORM": 127,
+	"ORI": 128,
+	"OSS": 129,
+	"PAN": 130,
+	"PLI": 131,
+	"FAS": 132,
+	"POL": 133,
+	"PUS": 134,
+	"POR": 135,
+	"QUE": 136,
+	"ROH": 137,
+	"RUN": 138,
+	"RON": 139,
+	"RUS": 140,
+	"SAN": 141,
+	"SRD": 142,
+	"SND": 143,
+	"SMO": 144,
+	"SAG": 145,
+	"SRP": 146,
+	"GLA": 147,
+	"SNA": 148,
+	"SIN": 149,
+	"SLK": 150,
+	"SLV": 151,
+	"SOM": 152,
+	"SOT": 153,
+	"SPA": 154,
+	"SUN": 155,
+	"SWA": 156,
+	"SSW": 157,
+	"TAM": 158,
+	"TEL": 159,
+	"TGK": 160,
+	"THA": 161,
+	"TIR": 162,
+	"BOD": 163,
+	"TUK": 164,
+	"TGL": 165,
+	"FIL": 166,
+	"TSN": 167,
+	"TON": 168,
+	"TUR": 169,
+	"TSO": 170,
+	"TAT": 171,
+	"TWI": 172,
+	"TAH": 173,
+	"UIG": 174,
+	"UKR": 175,
+	"URD": 176,
+	"UZB": 177,
+	"VEN": 178,
+	"VIE": 179,
+	"VOL": 180,
+	"WLN": 181,
+	"CYM": 182,
+	"WOL": 183,
+	"FRY": 184,
+	"XHO": 185,
+	"YID": 186,
+	"YOR": 187,
+	"ZHA": 188,
+	"ZUL": 189,
+	"ACE": 190,
+	"ACH": 191,
+	"ADA": 192,
+	"ADY": 193,
+	"AFA": 194,
+	"AFH": 195,
+	"AIN": 196,
+	"AKK": 197,
+	"ALE": 198,
+	"ALG": 199,
+	"ALT": 200,
+	"ANG": 201,
+	"ANP": 202,
+	"APA": 203,
+	"ARC": 204,
+	"ARN": 205,
+	"ARP": 206,
+	"ART": 207,
+	"ARW": 208,
+	"AST": 209,
+	"ATH": 210,
+	"AUS": 211,
+	"AWA": 212,
+	"BAD": 213,
+	"BAI": 214,
+	"BAL": 215,
+	"BAN": 216,
+	"BAS": 217,
+	"BAT": 218,
+	"BEJ": 219,
+	"BEM": 220,
+	"BHO": 221,
+	"BIK": 222,
+	"BIN": 223,
+	"BLA": 224,
+	"BNT": 225,
+	"BRA": 226,
+	"BTK": 227,
+	"BUA": 228,
+	"BUG": 229,
+	"BYN": 230,
+	"CAD": 231,
+	"CAI": 232,
+	"CAR": 233,
+	"CAU": 234,
+	"CEB": 235,
+	"CEL": 236,
+	"CHB": 237,
+	"CHG": 238,
+	"CHK": 239,
+	"CHM": 240,
+	"CHN": 241,
+	"CHO": 242,
+	"CHP": 243,
+	"CHR": 244,
+	"CHY": 245,
+	"CMC": 246,
+	"COP": 247,
+	"CPE": 248,
+	"CPF": 249,
+	"CPP": 250,
+	"CRH": 251,
+	"CRP": 252,
+	"CSB": 253,
+	"CUS": 254,
+	"DAK": 255,
+	"DAR": 256,
+	"DAY": 257,
+	"DEL": 258,
+	"DEN": 259,
+	"DGR": 260,
+	"DIN": 261,
+	"DOI": 262,
+	"DRA": 263,
+	"DSB": 264,
+	"DUA": 265,
+	"DUM": 266,
+	"DYU": 267,
+	"EFI": 268,
+	"EGY": 269,
+	"EKA": 270,
+	"ELX": 271,
+	"ENM": 272,
+	"EWO": 273,
+	"FAN": 274,
+	"FAT": 275,
+	"FIU": 276,
+	"FON": 277,
+	"FRM": 278,
+	"FRO": 279,
+	"FRR": 280,
+	"FRS": 281,
+	"FUR": 282,
+	"GAA": 283,
+	"GAY": 284,
+	"GBA": 285,
+	"GEM": 286,
+	"GEZ": 287,
+	"GIL": 288,
+	"GMH": 289,
+	"GOH": 290,
+	"GON": 291,
+	"GOR": 292,
+	"GOT": 293,
+	"GRB": 294,
+	"GRC": 295,
+	"GSW": 296,
+	"GWI": 297,
+	"HAI": 298,
+	"HAW": 299,
+	"HIL": 300,
+	"HIM": 301,
+	"HIT": 302,
+	"HMN": 303,
+	"HSB": 304,
+	"HUP": 305,
+	"IBA": 306,
+	"IJO": 307,
+	"ILO": 308,
+	"INC": 309,
+	"INE": 310,
+	"INH": 311,
+	"IRA": 312,
+	"IRO": 313,
+	"JBO": 314,
+	"JPR": 315,
+	"JRB": 316,
+	"KAA": 317,
+	"KAB": 318,
+	"KAC": 319,
+	"KAM": 320,
+	"KAR": 321,
+	"KAW": 322,
+	"KBD": 323,
+	"KHA": 324,
+	"KHI": 325,
+	"KHO": 326,
+	"KMB": 327,
+	"KOK": 328,
+	"KOS": 329,
+	"KPE": 330,
+	"KRC": 331,
+	"KRL": 332,
+	"KRO": 333,
+	"KRU": 334,
+	"KUM": 335,
+	"KUT": 336,
+	"LAD": 337,
+	"LAH": 338,
+	"LAM": 339,
+	"LEZ": 340,
+	"LOL": 341,
+	"LOZ": 342,
+	"LUA": 343,
+	"LUI": 344,
+	"LUN": 345,
+	"LUO": 346,
+	"LUS": 347,
+	"MAD": 348,
+	"MAG": 349,
+	"MAI": 350,
+	"MAK": 351,
+	"MAN": 352,
+	"MAP": 353,
+	"MAS": 354,
+	"MDF": 355,
+	"MDR": 356,
+	"MEN": 357,
+	"MGA": 358,
+	"MIC": 359,
+	"MIN": 360,
+	"MIS": 361,
+	"MKH": 362,
+	"MNC": 363,
+	"MNI": 364,
+	"MNO": 365,
+	"MOH": 366,
+	"MOS": 367,
+	"MUL": 368,
+	"MUN": 369,
+	"MUS": 370,
+	"MWL": 371,
+	"MWR": 372,
+	"MYN": 373,
+	"MYV": 374,
+	"NAH": 375,
+	"NAI": 376,
+	"NAP": 377,
+	"NDS": 378,
+	"NEW": 379,
+	"NIA": 380,
+	"NIC": 381,
+	"NIU": 382,
+	"NOG": 383,
+	"NON": 384,
+	"NQO": 385,
+	"NUB": 386,
+	"NWC": 387,
+	"NYM": 388,
+	"NYN": 389,
+	"NYO": 390,
+	"NZI": 391,
+	"OSA": 392,
+	"OTA": 393,
+	"OTO": 394,
+	"PAA": 395,
+	"PAG": 396,
+	"PAL": 397,
+	"PAM": 398,
+	"PAP": 399,
+	"PAU": 400,
+	"PEO": 401,
+	"PHI": 402,
+	"PHN": 403,
+	"PON": 404,
+	"PRA": 405,
+	"PRO": 406,
+	"RAJ": 407,
+	"RAP": 408,
+	"RAR": 409,
+	"ROA": 410,
+	"ROM": 411,
+	"RUP": 412,
+	"SAD": 413,
+	"SAH": 414,
+	"SAI": 415,
+	"SAL": 416,
+	"SAM": 417,
+	"SAS": 418,
+	"SAT": 419,
+	"SCN": 420,
+	"SCO": 421,
+	"SEL": 422,
+	"SEM": 423,
+	"SGA": 424,
+	"SGN": 425,
+	"SHN": 426,
+	"SID": 427,
+	"SIO": 428,
+	"SIT": 429,
+	"SLA": 430,
+	"SMI": 431,
+	"SMN": 432,
+	"SMS": 433,
+	"SNK": 434,
+	"SOG": 435,
+	"SON": 436,
+	"SRN": 437,
+	"SRR": 438,
+	"SSA": 439,
+	"SUK": 440,
+	"SUS": 441,
+	"SUX": 442,
+	"SYC": 443,
+	"SYR": 444,
+	"TAI": 445,
+	"TEM": 446,
+	"TER": 447,
+	"TET": 448,
+	"TIG": 449,
+	"TIV": 450,
+	"TKL": 451,
+	"TLH": 452,
+	"TLI": 453,
+	"TMH": 454,
+	"TOG": 455,
+	"TPI": 456,
+	"TSI": 457,
+	"TUM": 458,
+	"TUP": 459,
+	"TUT": 460,
+	"TVL": 461,
+	"TYV": 462,
+	"UDM": 463,
+	"UGA": 464,
+	"UMB": 465,
+	"VAI": 466,
+	"VOT": 467,
+	"WAK": 468,
+	"WAL": 469,
+	"WAR": 470,
+	"WAS": 471,
+	"WEN": 472,
+	"XAL": 473,
+	"YAO": 474,
+	"YAP": 475,
+	"YPK": 476,
+	"ZAP": 477,
+	"ZBL": 478,
+	"ZEN": 479,
+	"ZGH": 480,
+	"ZND": 481,
+	"ZUN": 482,
+	"ZXX": 483,
+	"ZZA": 484,
 }
 
-func (x DetectLanguageReply_Language) String() string {
-	return proto.EnumName(DetectLanguageReply_Language_name, int32(x))
+func (x Code) String() string {
+	return proto.EnumName(Code_name, int32(x))
 }
-func (DetectLanguageReply_Language) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor0, []int{1, 0}
-}
+func (Code) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
 
 // Request message for `Maalfrid.DetectLanguage`
 type DetectLanguageRequest struct {
@@ -1528,8 +1524,7 @@ func (m *DetectLanguageRequest) GetText() string {
 
 // Reply message for `Maalfrid.DetectLanguage`
 type DetectLanguageReply struct {
-	// The detected language
-	Language DetectLanguageReply_Language `protobuf:"varint,1,opt,name=language,enum=maalfrid.DetectLanguageReply_Language" json:"language,omitempty"`
+	Languages []*Language `protobuf:"bytes,1,rep,name=languages" json:"languages,omitempty"`
 }
 
 func (m *DetectLanguageReply) Reset()                    { *m = DetectLanguageReply{} }
@@ -1537,17 +1532,42 @@ func (m *DetectLanguageReply) String() string            { return proto.CompactT
 func (*DetectLanguageReply) ProtoMessage()               {}
 func (*DetectLanguageReply) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
 
-func (m *DetectLanguageReply) GetLanguage() DetectLanguageReply_Language {
+func (m *DetectLanguageReply) GetLanguages() []*Language {
 	if m != nil {
-		return m.Language
+		return m.Languages
 	}
-	return DetectLanguageReply_UNKNOWN
+	return nil
+}
+
+type Language struct {
+	Code  Code    `protobuf:"varint,1,opt,name=code,enum=api.Code" json:"code,omitempty"`
+	Count float64 `protobuf:"fixed64,2,opt,name=count" json:"count,omitempty"`
+}
+
+func (m *Language) Reset()                    { *m = Language{} }
+func (m *Language) String() string            { return proto.CompactTextString(m) }
+func (*Language) ProtoMessage()               {}
+func (*Language) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+
+func (m *Language) GetCode() Code {
+	if m != nil {
+		return m.Code
+	}
+	return Code_UND
+}
+
+func (m *Language) GetCount() float64 {
+	if m != nil {
+		return m.Count
+	}
+	return 0
 }
 
 func init() {
-	proto.RegisterType((*DetectLanguageRequest)(nil), "maalfrid.DetectLanguageRequest")
-	proto.RegisterType((*DetectLanguageReply)(nil), "maalfrid.DetectLanguageReply")
-	proto.RegisterEnum("maalfrid.DetectLanguageReply_Language", DetectLanguageReply_Language_name, DetectLanguageReply_Language_value)
+	proto.RegisterType((*DetectLanguageRequest)(nil), "api.DetectLanguageRequest")
+	proto.RegisterType((*DetectLanguageReply)(nil), "api.DetectLanguageReply")
+	proto.RegisterType((*Language)(nil), "api.Language")
+	proto.RegisterEnum("api.Code", Code_name, Code_value)
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1574,7 +1594,7 @@ func NewMaalfridClient(cc *grpc.ClientConn) MaalfridClient {
 
 func (c *maalfridClient) DetectLanguage(ctx context.Context, in *DetectLanguageRequest, opts ...grpc.CallOption) (*DetectLanguageReply, error) {
 	out := new(DetectLanguageReply)
-	err := grpc.Invoke(ctx, "/maalfrid.Maalfrid/DetectLanguage", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/api.Maalfrid/DetectLanguage", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1601,7 +1621,7 @@ func _Maalfrid_DetectLanguage_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/maalfrid.Maalfrid/DetectLanguage",
+		FullMethod: "/api.Maalfrid/DetectLanguage",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MaalfridServer).DetectLanguage(ctx, req.(*DetectLanguageRequest))
@@ -1610,7 +1630,7 @@ func _Maalfrid_DetectLanguage_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 var _Maalfrid_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "maalfrid.Maalfrid",
+	ServiceName: "api.Maalfrid",
 	HandlerType: (*MaalfridServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -1625,138 +1645,140 @@ var _Maalfrid_serviceDesc = grpc.ServiceDesc{
 func init() { proto.RegisterFile("maalfrid.proto", fileDescriptor0) }
 
 var fileDescriptor0 = []byte{
-	// 2113 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0xd8, 0x77, 0xb4, 0x24, 0x45,
-	0xd9, 0xc7, 0x71, 0x96, 0xcb, 0x0b, 0xcb, 0xe5, 0x7d, 0xf7, 0xfd, 0x7a, 0x11, 0x45, 0x14, 0xc1,
-	0x55, 0x10, 0x45, 0x57, 0x05, 0x73, 0xae, 0x99, 0xe9, 0xdb, 0xdd, 0xb7, 0xbb, 0xab, 0x7a, 0xab,
-	0xbb, 0x67, 0x76, 0x46, 0x45, 0x17, 0x58, 0x10, 0x5d, 0xf2, 0x45, 0xc1, 0x48, 0x0e, 0x4b, 0xce,
-	0x39, 0xe7, 0x9c, 0x73, 0xce, 0x39, 0xe7, 0x9c, 0x73, 0xce, 0x19, 0x3c, 0x53, 0xcf, 0x03, 0xe7,
-	0xe8, 0x51, 0xff, 0xfb, 0xcc, 0xef, 0x79, 0xaa, 0x6f, 0x75, 0x57, 0xdf, 0x3e, 0x75, 0x6a, 0x74,
-	0xda, 0x9a, 0xb3, 0x67, 0xcf, 0x5d, 0x6d, 0xbd, 0x35, 0x56, 0x9d, 0xb1, 0xce, 0x7a, 0x6b, 0x4f,
-	0xae, 0x3d, 0x36, 0xf5, 0xa3, 0xdf, 0xd3, 0x97, 0x1f, 0x5d, 0xac, 0x33, 0x67, 0x72, 0xce, 0x2a,
-	0x93, 0xf9, 0xec, 0xb5, 0x56, 0xdf, 0x60, 0xf6, 0xea, 0x73, 0xfc, 0x9c, 0x75, 0x37, 0x98, 0xb3,
-	0xfe, 0xe4, 0xd8, 0xd8, 0xe8, 0x02, 0x93, 0x73, 0x36, 0x9c, 0x5c, 0x7c, 0xca, 0xd2, 0x53, 0x96,
-	0x5b, 0xd8, 0x07, 0x4f, 0x7f, 0x62, 0x99, 0xd1, 0x45, 0xff, 0xb5, 0x7b, 0x9d, 0xb9, 0x1b, 0x8d,
-	0xb5, 0x46, 0xa7, 0xce, 0xd5, 0x20, 0xf4, 0x4f, 0x5b, 0x61, 0xd9, 0x19, 0x1f, 0xff, 0xc5, 0x7f,
-	0x33, 0x60, 0xc6, 0xc7, 0xbf, 0x3e, 0x1e, 0x37, 0x7d, 0xde, 0x32, 0xa3, 0x53, 0x3f, 0x8a, 0xc7,
-	0x16, 0x19, 0x5d, 0xa8, 0xb1, 0x99, 0x75, 0x3d, 0xcb, 0x7c, 0x63, 0x0b, 0x8d, 0x8e, 0x58, 0xd7,
-	0x62, 0x4a, 0x80, 0x75, 0xcc, 0x3f, 0x44, 0xc7, 0x58, 0x46, 0x86, 0xa8, 0x7a, 0x11, 0x0b, 0x0c,
-	0x11, 0xd9, 0x98, 0xff, 0x19, 0x62, 0xdc, 0x1b, 0x16, 0x0c, 0xa5, 0xc2, 0xb0, 0x90, 0x60, 0x82,
-	0xa9, 0x82, 0x88, 0x85, 0x87, 0x30, 0xad, 0x8c, 0xd1, 0x00, 0xe3, 0x59, 0x24, 0x60, 0xdc, 0xf3,
-	0xbf, 0x01, 0x99, 0xe1, 0xff, 0x42, 0xf3, 0xcc, 0x94, 0x69, 0x21, 0x29, 0x12, 0xfe, 0x3f, 0xc0,
-	0x1b, 0x10, 0xc4, 0x7c, 0x62, 0x88, 0xa4, 0x1f, 0x31, 0x16, 0x92, 0xaa, 0x60, 0xd1, 0x80, 0xae,
-	0xe1, 0x93, 0x82, 0x88, 0xc5, 0x02, 0xfa, 0x05, 0x9f, 0x0a, 0x18, 0x44, 0x7c, 0x7a, 0x88, 0x96,
-	0x29, 0x58, 0x5c, 0x90, 0xf1, 0x99, 0x30, 0xf9, 0xa6, 0x62, 0x89, 0x90, 0x44, 0x39, 0x9f, 0x15,
-	0x58, 0x3e, 0x27, 0xf0, 0x2c, 0x19, 0x90, 0x56, 0x7c, 0x3e, 0xc0, 0x55, 0x2c, 0x15, 0xe0, 0x23,
-	0x96, 0x0e, 0x68, 0x72, 0xbe, 0x30, 0x44, 0xd1, 0x37, 0x4c, 0x1f, 0xa2, 0x6d, 0x6a, 0xbe, 0x18,
-	0x90, 0x18, 0xbe, 0x24, 0x88, 0x58, 0x26, 0x3c, 0xc3, 0xbe, 0x61, 0xd9, 0x21, 0x06, 0x89, 0xe3,
-	0xcb, 0x52, 0xea, 0xb2, 0x5c, 0x80, 0xf3, 0x7c, 0x45, 0x50, 0xf1, 0xd5, 0x00, 0x1f, 0xb1, 0x7c,
-	0xb8, 0x53, 0xdf, 0xe5, 0x6b, 0x21, 0x89, 0x2a, 0xbe, 0x3e, 0x44, 0xe9, 0x2b, 0x66, 0x84, 0xb5,
-	0x48, 0xbb, 0x7c, 0x23, 0x5c, 0x39, 0xef, 0xf0, 0xcd, 0x90, 0x0c, 0x1c, 0xdf, 0x0a, 0xf7, 0x55,
-	0x3a, 0x56, 0x08, 0xa8, 0x6a, 0x56, 0x0c, 0xe8, 0x45, 0x7c, 0x3b, 0x2c, 0x93, 0x71, 0x7c, 0x27,
-	0x20, 0x9d, 0xe0, 0xbb, 0x02, 0xcb, 0xf7, 0x02, 0x9a, 0x9c, 0xef, 0x0f, 0x11, 0xe7, 0x31, 0x3f,
-	0x18, 0x22, 0x33, 0x35, 0x3f, 0x0c, 0x57, 0x8e, 0x1a, 0x7e, 0x14, 0xae, 0x93, 0xe7, 0xfc, 0x38,
-	0xf4, 0x78, 0xcb, 0x4f, 0x02, 0x9a, 0x09, 0x7e, 0x1a, 0xa6, 0x6a, 0x6a, 0x7e, 0x26, 0x68, 0xf8,
-	0x79, 0x40, 0xd4, 0xc2, 0x08, 0x3c, 0xad, 0x80, 0xd4, 0xd2, 0x0e, 0x28, 0x1c, 0x9d, 0x80, 0xc6,
-	0x12, 0x0d, 0x91, 0x5a, 0xc3, 0xb8, 0xa0, 0x43, 0x1c, 0x90, 0x47, 0x24, 0x32, 0x9f, 0x88, 0x34,
-	0x24, 0x2d, 0xc7, 0x44, 0x40, 0x99, 0x91, 0x05, 0x74, 0x1c, 0x79, 0x40, 0x95, 0x53, 0x04, 0xd4,
-	0x06, 0x1b, 0x90, 0x35, 0xb8, 0x21, 0x26, 0x4a, 0x4b, 0x19, 0x60, 0xba, 0xcc, 0x94, 0xfb, 0xca,
-	0xf1, 0x02, 0x4b, 0x25, 0x68, 0xa8, 0x05, 0x15, 0x8d, 0x60, 0x40, 0x37, 0x20, 0x29, 0xe8, 0x05,
-	0xa4, 0x19, 0xb3, 0x04, 0x96, 0xbe, 0xc0, 0x33, 0x08, 0x70, 0x05, 0xbf, 0x10, 0x58, 0x7e, 0x29,
-	0xf0, 0xfc, 0x2a, 0xa0, 0xf1, 0xac, 0x24, 0x30, 0xfc, 0x7a, 0x88, 0xdc, 0xd4, 0xfc, 0x26, 0xa0,
-	0x1e, 0x30, 0x3b, 0xa0, 0x89, 0x59, 0x39, 0x20, 0x2d, 0x58, 0x45, 0x60, 0x59, 0x55, 0x9a, 0x1d,
-	0x73, 0x24, 0xa9, 0x59, 0x4d, 0x9a, 0x5b, 0xac, 0x2e, 0xa5, 0x2e, 0xbf, 0x95, 0xe7, 0xd3, 0x65,
-	0x8d, 0xf0, 0x1e, 0x66, 0x1d, 0x7e, 0x17, 0x90, 0xc7, 0xfc, 0x3e, 0xa0, 0x32, 0xcc, 0x0d, 0x30,
-	0x39, 0x6b, 0x4a, 0xa9, 0x66, 0xad, 0x00, 0x9f, 0xb2, 0xb6, 0x94, 0x3c, 0xeb, 0x08, 0x12, 0xd6,
-	0x0d, 0x70, 0x96, 0xf5, 0xc2, 0xab, 0x65, 0x1a, 0xd6, 0x17, 0x74, 0x99, 0x0c, 0xe8, 0x44, 0x6c,
-	0x10, 0x50, 0x39, 0xfe, 0x10, 0x10, 0x95, 0xfc, 0x51, 0x4a, 0x8e, 0x0d, 0xe5, 0xbb, 0xe1, 0xd9,
-	0x28, 0x2c, 0x41, 0x9a, 0xf2, 0xa7, 0x90, 0xb4, 0x72, 0xfe, 0x3c, 0x84, 0x6b, 0xa7, 0xfc, 0x25,
-	0x60, 0x22, 0xe5, 0xaf, 0xf2, 0x5f, 0xd0, 0xf0, 0xb7, 0x90, 0xf8, 0x82, 0xbf, 0x8f, 0x4d, 0x1d,
-	0x22, 0x65, 0xe3, 0x29, 0x41, 0x55, 0xc5, 0x26, 0x41, 0xa5, 0xb1, 0x6c, 0x2a, 0xca, 0x53, 0x36,
-	0x0b, 0x1a, 0x37, 0x15, 0x9b, 0x4b, 0xe6, 0x72, 0xb6, 0x10, 0x35, 0x15, 0x5b, 0x6a, 0xe6, 0xd9,
-	0x2a, 0x68, 0x66, 0x13, 0xb1, 0x75, 0x90, 0x77, 0x09, 0xdb, 0x88, 0x1a, 0xcb, 0x3c, 0xcd, 0x2c,
-	0xdb, 0x6a, 0x56, 0xb1, 0x5d, 0x50, 0x65, 0x2c, 0xdb, 0x8b, 0x7c, 0x87, 0x1d, 0x44, 0xb6, 0xc3,
-	0x8e, 0xa2, 0xc2, 0xb1, 0x93, 0xf6, 0xc5, 0xec, 0xac, 0x7d, 0x25, 0xbb, 0x04, 0xc5, 0xb9, 0x61,
-	0x57, 0x1d, 0x61, 0xd8, 0x4d, 0x94, 0x5a, 0x76, 0x17, 0xe5, 0x19, 0x7b, 0xa8, 0xba, 0xec, 0x29,
-	0x72, 0x05, 0x7b, 0xa9, 0x6a, 0xf6, 0x16, 0x95, 0x86, 0x7d, 0x44, 0x8d, 0x65, 0x5f, 0x51, 0xcf,
-	0xb0, 0x9f, 0xa8, 0xea, 0xb1, 0x7f, 0x50, 0x6d, 0x0a, 0x0e, 0x10, 0x45, 0x39, 0x07, 0x8a, 0xe2,
-	0x8c, 0x83, 0x44, 0x89, 0xe1, 0x60, 0x51, 0xea, 0x39, 0x24, 0xa8, 0xe5, 0x3a, 0x1c, 0x2a, 0x59,
-	0x93, 0x71, 0x98, 0x8e, 0xc8, 0x39, 0x5c, 0x9e, 0x69, 0x9a, 0x73, 0x84, 0x64, 0x95, 0xe5, 0x48,
-	0x91, 0xb3, 0x1c, 0xa5, 0x23, 0x3c, 0x47, 0x6b, 0xd5, 0x71, 0x8c, 0xce, 0xa0, 0xe6, 0x58, 0x51,
-	0x2f, 0xe5, 0x38, 0xcd, 0x12, 0x8e, 0x0f, 0x6a, 0xd2, 0x98, 0x13, 0x44, 0x99, 0xe7, 0x44, 0x91,
-	0xef, 0x70, 0x92, 0x68, 0xd0, 0xe2, 0xe4, 0xa0, 0x6e, 0x64, 0x39, 0x45, 0x94, 0x46, 0x9c, 0x2a,
-	0x72, 0x39, 0xa7, 0x05, 0xf5, 0x72, 0xcb, 0xe9, 0x41, 0xed, 0x7e, 0xc1, 0x19, 0x92, 0xb9, 0x9c,
-	0x33, 0x65, 0xce, 0xbe, 0xcf, 0x59, 0x41, 0xb3, 0x12, 0xc7, 0xd9, 0x41, 0xfd, 0xb4, 0xc3, 0x39,
-	0x22, 0xe7, 0x39, 0x37, 0x68, 0x90, 0x18, 0xce, 0x13, 0x35, 0x39, 0xe7, 0x07, 0x99, 0x76, 0xc4,
-	0x05, 0xaa, 0x84, 0x0b, 0x45, 0x1d, 0xc3, 0x45, 0xaa, 0x3e, 0x17, 0x8b, 0xc6, 0x0d, 0x97, 0xa8,
-	0x12, 0x2e, 0x15, 0xa5, 0x96, 0xcb, 0x44, 0x59, 0xc6, 0xe5, 0xa2, 0x3c, 0xe2, 0x0a, 0x55, 0xcc,
-	0x95, 0xaa, 0x9a, 0xab, 0x44, 0x36, 0xe6, 0x6a, 0x55, 0xc9, 0x35, 0xa2, 0xd2, 0x70, 0xad, 0xc8,
-	0xb7, 0xb9, 0x4e, 0x65, 0xb9, 0x5e, 0x55, 0x72, 0x83, 0xaa, 0xe6, 0x46, 0x55, 0x8f, 0x9b, 0x44,
-	0x55, 0xcd, 0xcd, 0xa2, 0x3a, 0xe1, 0x16, 0x51, 0x53, 0x71, 0xab, 0xa8, 0x67, 0xb8, 0x4d, 0xd6,
-	0xdc, 0x74, 0xb8, 0x5d, 0x95, 0x72, 0x87, 0x2a, 0xe7, 0x4e, 0x95, 0xe5, 0x2e, 0x55, 0xc5, 0xdd,
-	0xaa, 0x9a, 0x7b, 0x44, 0xd1, 0x04, 0xf7, 0xaa, 0x0a, 0xee, 0x13, 0x25, 0x8e, 0xfb, 0x45, 0x69,
-	0xc6, 0x03, 0x2a, 0xcb, 0x83, 0xa2, 0xdc, 0xf0, 0x90, 0xc8, 0xd6, 0x3c, 0x2c, 0xf2, 0x86, 0x47,
-	0x44, 0x75, 0xc6, 0xa3, 0xa2, 0xc6, 0xf0, 0x98, 0x2a, 0xe6, 0x71, 0x51, 0xdf, 0xf2, 0x84, 0xac,
-	0xb4, 0xe9, 0xf0, 0xa4, 0x2a, 0xe5, 0x29, 0x95, 0xe7, 0x69, 0x55, 0xc3, 0x33, 0xa2, 0xa8, 0xc5,
-	0xb3, 0xaa, 0x9c, 0xe7, 0x44, 0x49, 0x8b, 0xe7, 0x55, 0x31, 0x2f, 0xa8, 0x32, 0x5e, 0x54, 0x15,
-	0xbc, 0xa4, 0xb2, 0xbc, 0xac, 0x72, 0xbc, 0xa2, 0x2a, 0x79, 0x55, 0xe5, 0x79, 0x4d, 0xd5, 0xe7,
-	0x75, 0x51, 0xd1, 0xe6, 0x0d, 0x91, 0x2b, 0x79, 0x53, 0x54, 0x46, 0xbc, 0xa5, 0x1a, 0xe7, 0x6d,
-	0x55, 0xc9, 0x3b, 0x22, 0x9f, 0xf0, 0xae, 0xaa, 0xe4, 0x3d, 0x51, 0xd5, 0xe2, 0x7d, 0x51, 0x53,
-	0xf1, 0x41, 0x50, 0xc7, 0x64, 0x7c, 0xa8, 0xf2, 0x6c, 0x3c, 0xbf, 0xa8, 0xcf, 0x26, 0xa2, 0x28,
-	0x67, 0x53, 0x95, 0x65, 0x33, 0x51, 0xec, 0xd9, 0x5c, 0x94, 0x5a, 0xb6, 0x10, 0xb9, 0x94, 0x2d,
-	0x45, 0xde, 0xb0, 0x95, 0xa8, 0x6a, 0xb1, 0xb5, 0xa8, 0x31, 0x6c, 0xa3, 0x2a, 0x98, 0x27, 0xea,
-	0x37, 0x6c, 0x1b, 0x14, 0x8d, 0xa7, 0x6c, 0x27, 0x8a, 0xfb, 0x6c, 0x2f, 0xca, 0x0c, 0x3b, 0x88,
-	0xf2, 0x59, 0xec, 0x28, 0xb2, 0x05, 0x3b, 0x89, 0x7a, 0x8e, 0x9d, 0xe7, 0x97, 0x6f, 0xb1, 0x65,
-	0x17, 0x55, 0xcd, 0xae, 0xa2, 0xb4, 0x61, 0x37, 0x91, 0xb3, 0xec, 0x2e, 0xf2, 0x05, 0x7b, 0xa8,
-	0x1c, 0x7b, 0xaa, 0x3c, 0x7b, 0xa9, 0x2a, 0xf6, 0x16, 0x35, 0x9e, 0x7d, 0x82, 0x62, 0x63, 0xd8,
-	0x57, 0xd5, 0x67, 0x3f, 0x51, 0xcb, 0xb0, 0xbf, 0x28, 0x2a, 0x38, 0x40, 0x35, 0xe0, 0x40, 0x51,
-	0x9a, 0x73, 0x90, 0xa8, 0x48, 0x38, 0x58, 0xe4, 0x12, 0x0e, 0x51, 0x59, 0x0e, 0x55, 0x79, 0x0e,
-	0x53, 0xd5, 0x1c, 0x2e, 0xf2, 0x2d, 0x8e, 0x50, 0xb5, 0x39, 0x52, 0x54, 0xf5, 0x38, 0x4a, 0xd4,
-	0x4b, 0x39, 0x3a, 0x28, 0x31, 0x29, 0xc7, 0xa8, 0x7a, 0x1c, 0x2b, 0x4a, 0x73, 0x8e, 0x53, 0x15,
-	0x1c, 0xaf, 0xaa, 0x39, 0x41, 0x54, 0x58, 0x4e, 0x14, 0x55, 0x2d, 0x4e, 0x12, 0x35, 0x25, 0x27,
-	0x07, 0xa5, 0x2d, 0xc3, 0x29, 0xa2, 0x09, 0xc7, 0xa9, 0xa2, 0xdc, 0x71, 0x9a, 0xc8, 0xb6, 0x39,
-	0x5d, 0x15, 0x71, 0x86, 0x2a, 0xe1, 0x4c, 0x91, 0x37, 0x9c, 0xa5, 0x72, 0x9c, 0x1d, 0x34, 0xd1,
-	0x72, 0x9c, 0x23, 0x2a, 0x3d, 0xe7, 0x8a, 0x7c, 0x8b, 0xf3, 0x82, 0x32, 0x63, 0x38, 0x5f, 0xd5,
-	0xe2, 0x02, 0x55, 0x9b, 0x0b, 0x55, 0x05, 0x17, 0xa9, 0x3c, 0x17, 0xab, 0x7a, 0x5c, 0x22, 0x6a,
-	0x75, 0xb8, 0x54, 0x94, 0x18, 0x2e, 0x53, 0xa5, 0x5c, 0xae, 0x72, 0x5c, 0x21, 0x2a, 0x5a, 0x5c,
-	0x29, 0x72, 0x19, 0x57, 0xa9, 0x2a, 0xae, 0x16, 0x95, 0x11, 0xd7, 0x88, 0x7c, 0x9b, 0x6b, 0x55,
-	0x39, 0xd7, 0xa9, 0x1c, 0xd7, 0xab, 0x1a, 0x6e, 0x10, 0x35, 0x05, 0x37, 0xaa, 0x6a, 0x6e, 0x0a,
-	0xca, 0x4d, 0x87, 0x9b, 0x55, 0x09, 0xb7, 0xa8, 0x0a, 0x6e, 0x15, 0x45, 0x03, 0x6e, 0x13, 0xb9,
-	0x9c, 0xdb, 0x55, 0x03, 0xee, 0x10, 0x35, 0x86, 0x3b, 0x55, 0x29, 0x77, 0xa9, 0x2c, 0x77, 0xab,
-	0x1c, 0xf7, 0xa8, 0x2a, 0xee, 0x0d, 0x2a, 0x4c, 0x87, 0xfb, 0x54, 0x31, 0xf7, 0xab, 0x52, 0x1e,
-	0x50, 0x65, 0x3c, 0xa8, 0xb2, 0x3c, 0xa4, 0x2a, 0x79, 0x58, 0x55, 0xf1, 0x88, 0xa8, 0x33, 0xce,
-	0xa3, 0x2a, 0xcf, 0x63, 0xa2, 0xc8, 0xf2, 0xb8, 0x28, 0x36, 0x3c, 0x21, 0x4a, 0xdb, 0x3c, 0xa9,
-	0xb2, 0x3c, 0xa5, 0xaa, 0x78, 0x5a, 0x94, 0x25, 0x3c, 0x23, 0xb2, 0x6d, 0x9e, 0x55, 0xa5, 0x3c,
-	0xa7, 0x72, 0x3c, 0x2f, 0x72, 0x09, 0x2f, 0xa8, 0x2a, 0x5e, 0x14, 0x35, 0x39, 0x2f, 0xa9, 0x2c,
-	0x2f, 0xab, 0x2a, 0x5e, 0x11, 0xf5, 0x72, 0x5e, 0x55, 0x79, 0x5e, 0x13, 0xf5, 0x2d, 0xaf, 0xab,
-	0xba, 0xbc, 0x11, 0x64, 0x4d, 0xc2, 0x9b, 0xaa, 0x94, 0xb7, 0x54, 0x25, 0x6f, 0x8b, 0x3a, 0x15,
-	0xef, 0x88, 0xa2, 0x1e, 0xef, 0x8a, 0x52, 0xc3, 0x7b, 0xaa, 0x36, 0xef, 0xab, 0x1a, 0x3e, 0x10,
-	0xb9, 0x98, 0x0f, 0x55, 0x96, 0x8d, 0x47, 0x82, 0x66, 0x3a, 0x36, 0x11, 0x35, 0x2d, 0x36, 0x15,
-	0xf5, 0xda, 0x6c, 0x26, 0xea, 0x17, 0x6c, 0xae, 0xb2, 0x6c, 0xa1, 0x72, 0x6c, 0x29, 0x1a, 0xa4,
-	0x6c, 0x35, 0x22, 0xbb, 0x48, 0xc3, 0xd6, 0xa2, 0xda, 0xb0, 0x8d, 0xca, 0x31, 0x6f, 0x44, 0x76,
-	0x96, 0x86, 0x6d, 0x55, 0x31, 0xdb, 0xa9, 0x72, 0xb6, 0x57, 0x15, 0xec, 0xa0, 0x2a, 0xd9, 0x51,
-	0xd5, 0xb0, 0x93, 0x28, 0x72, 0xec, 0x2c, 0x4a, 0x52, 0x76, 0x51, 0x59, 0x76, 0x15, 0x39, 0xcb,
-	0x6e, 0x22, 0x6f, 0xd8, 0x5d, 0xe5, 0xd8, 0x23, 0xc8, 0x9b, 0x09, 0xf6, 0x54, 0x95, 0xec, 0xa5,
-	0xf2, 0xec, 0x2d, 0x72, 0x86, 0x7d, 0x54, 0x05, 0xfb, 0x8a, 0x9a, 0x92, 0xfd, 0x46, 0x64, 0xdf,
-	0xd9, 0x61, 0x7f, 0x55, 0xc2, 0x01, 0xaa, 0x94, 0x03, 0x55, 0x39, 0x07, 0xa9, 0x0a, 0x0e, 0x56,
-	0x55, 0x1c, 0xa2, 0xaa, 0x39, 0x54, 0xd4, 0xb6, 0x1c, 0xa6, 0x72, 0x1c, 0x2e, 0x8a, 0x72, 0x8e,
-	0x50, 0x15, 0x1c, 0x29, 0x8a, 0x0d, 0x47, 0xa9, 0x2c, 0x47, 0x8b, 0x12, 0xcb, 0x31, 0xa2, 0xb4,
-	0xc3, 0xb1, 0x2a, 0xc7, 0x71, 0xaa, 0x9a, 0xe3, 0x45, 0xb9, 0xe1, 0x04, 0x51, 0x91, 0x72, 0xa2,
-	0xca, 0x72, 0x92, 0xaa, 0xe2, 0x64, 0x91, 0xcd, 0x38, 0x45, 0xe4, 0x62, 0x4e, 0x55, 0x59, 0x4e,
-	0x13, 0x79, 0xcb, 0xe9, 0x2a, 0xcf, 0x19, 0xa2, 0xca, 0x70, 0xa6, 0xa8, 0xc9, 0x38, 0x4b, 0x55,
-	0x71, 0xb6, 0x6a, 0x16, 0xe7, 0x88, 0xfa, 0x6d, 0xce, 0x55, 0x79, 0xce, 0x1b, 0x91, 0xfd, 0x69,
-	0xca, 0xf9, 0xa2, 0xa8, 0xe0, 0x02, 0x95, 0xe7, 0x42, 0x55, 0xcd, 0x45, 0xa2, 0x34, 0xe6, 0x62,
-	0x55, 0x97, 0x4b, 0x44, 0x59, 0xce, 0xa5, 0xa2, 0x3c, 0xe1, 0x32, 0x55, 0xca, 0xe5, 0xa2, 0x22,
-	0xe1, 0x0a, 0x91, 0x8b, 0xb9, 0x52, 0x54, 0xa6, 0x5c, 0x25, 0xaa, 0x52, 0xae, 0x16, 0x35, 0x05,
-	0xd7, 0xa8, 0x4a, 0xae, 0x55, 0xd5, 0x5c, 0x27, 0xea, 0xe6, 0x5c, 0x2f, 0xea, 0x77, 0xb9, 0x21,
-	0xa8, 0xe9, 0x14, 0xdc, 0x28, 0x8a, 0x0d, 0x37, 0x89, 0x8a, 0x16, 0x37, 0x8b, 0x6c, 0x87, 0x5b,
-	0x82, 0xba, 0x26, 0xe5, 0x56, 0x91, 0xab, 0xb9, 0x2d, 0xa8, 0x67, 0x32, 0x6e, 0x57, 0xe5, 0xdc,
-	0xa1, 0xf2, 0xdc, 0xa9, 0xaa, 0xb8, 0x4b, 0x14, 0x59, 0xee, 0x0e, 0x9a, 0x65, 0x72, 0xee, 0x09,
-	0xea, 0x1b, 0xc7, 0xbd, 0xaa, 0x92, 0xfb, 0x44, 0x65, 0xc6, 0xfd, 0x41, 0x03, 0x53, 0xf2, 0x80,
-	0xa8, 0x95, 0xf3, 0xa0, 0x28, 0xb2, 0x3c, 0x24, 0x8a, 0x13, 0x1e, 0x16, 0xd9, 0x0e, 0x8f, 0x88,
-	0x1a, 0xcb, 0xa3, 0xa2, 0x59, 0xb3, 0x78, 0x4c, 0x34, 0x30, 0x3c, 0x3e, 0xb2, 0xc2, 0x4a, 0xa3,
-	0x53, 0x0b, 0x3d, 0xbf, 0x1a, 0xf3, 0xa3, 0xd3, 0xfe, 0xf9, 0x08, 0x6b, 0x6c, 0xa9, 0xff, 0x7c,
-	0xb8, 0x15, 0xce, 0xce, 0x96, 0x58, 0xf2, 0xbf, 0x9e, 0x7e, 0x4d, 0x9f, 0x6f, 0xe5, 0x05, 0xc3,
-	0x31, 0xdc, 0x8a, 0xff, 0x08, 0x00, 0x00, 0xff, 0xff, 0x69, 0xb3, 0xa7, 0x25, 0x98, 0x13, 0x00,
-	0x00,
+	// 2160 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0xd8, 0x77, 0x98, 0x1c, 0xc5,
+	0x99, 0xc7, 0x71, 0xa4, 0x15, 0x20, 0x2d, 0x87, 0xee, 0x7b, 0x0b, 0xdc, 0xe9, 0xb8, 0xe3, 0x4e,
+	0xa7, 0xc3, 0xb6, 0x0c, 0xb6, 0x6c, 0x0b, 0xe7, 0x84, 0x6b, 0x66, 0x7a, 0xa7, 0x7b, 0xbb, 0xbb,
+	0xaa, 0x55, 0xdd, 0x3d, 0xa3, 0x59, 0x47, 0x21, 0x2d, 0x58, 0xb6, 0x40, 0x02, 0x56, 0x36, 0x38,
+	0x92, 0x73, 0xce, 0x39, 0xe7, 0x9c, 0x73, 0xce, 0x39, 0xe7, 0x9c, 0x73, 0xce, 0x19, 0x3f, 0x53,
+	0xef, 0x6b, 0xfb, 0xb1, 0x1f, 0xfe, 0xfb, 0xec, 0xef, 0x7d, 0xab, 0xb7, 0xba, 0xab, 0xa7, 0x9f,
+	0x7a, 0x6a, 0x70, 0xea, 0xfa, 0xf3, 0xe6, 0x2d, 0x5a, 0x77, 0xa3, 0x85, 0x0b, 0x66, 0x2d, 0xd9,
+	0x68, 0xf1, 0xf8, 0xe2, 0xa1, 0x81, 0x79, 0x4b, 0x16, 0xce, 0x58, 0x73, 0x70, 0x95, 0xd6, 0xd8,
+	0xf8, 0xd8, 0xfc, 0xf1, 0x6c, 0xde, 0x06, 0xeb, 0x2d, 0x9d, 0xb7, 0xde, 0x98, 0x1f, 0xdb, 0x70,
+	0xe9, 0xd8, 0xc6, 0xe3, 0x43, 0x43, 0x83, 0x93, 0xc6, 0xc7, 0x36, 0x19, 0x9f, 0x36, 0x61, 0xfa,
+	0x84, 0x99, 0x53, 0x7c, 0xf0, 0x8c, 0xc6, 0xe0, 0x4a, 0xff, 0xdc, 0xbc, 0x64, 0xd1, 0xa6, 0x43,
+	0x6b, 0x0e, 0x4e, 0x59, 0xa4, 0xc1, 0xc6, 0xd3, 0x26, 0x4c, 0x1f, 0x98, 0xb9, 0xc2, 0xec, 0x15,
+	0x67, 0xcd, 0x5b, 0xb2, 0x70, 0xd6, 0xdf, 0xda, 0xfe, 0x5e, 0x9f, 0xb1, 0xf6, 0xe0, 0xe4, 0xbf,
+	0xc6, 0x43, 0xab, 0x0d, 0x4e, 0x9a, 0xbf, 0x78, 0xc1, 0x58, 0xf8, 0x1f, 0x53, 0x67, 0x4f, 0x09,
+	0x63, 0x9a, 0x8b, 0x17, 0x8c, 0xf9, 0x10, 0x0f, 0xad, 0x3c, 0xb8, 0xec, 0xfc, 0xc5, 0x4b, 0x37,
+	0x18, 0x9f, 0x36, 0x71, 0xfa, 0x84, 0x99, 0x13, 0xbc, 0xfc, 0xb1, 0xc6, 0x7b, 0xab, 0x0f, 0x4e,
+	0xea, 0x37, 0x0d, 0x2d, 0x3f, 0x38, 0x50, 0xdb, 0x16, 0xcb, 0xf4, 0x61, 0x5d, 0x83, 0x09, 0x01,
+	0xd6, 0x31, 0xb1, 0x8f, 0x96, 0xb1, 0x0c, 0xf4, 0x51, 0x76, 0x23, 0x26, 0xf5, 0x11, 0xd9, 0x36,
+	0xcb, 0xf6, 0x31, 0xec, 0x0d, 0xcb, 0x85, 0x52, 0x6e, 0x58, 0x5e, 0x30, 0xc2, 0x64, 0x41, 0xc4,
+	0x94, 0x3e, 0x4c, 0x23, 0x65, 0x30, 0xc0, 0x78, 0x56, 0x08, 0x18, 0xf6, 0xfc, 0x4b, 0x40, 0x6a,
+	0x58, 0x31, 0x34, 0xcf, 0x49, 0x98, 0x1a, 0x92, 0x3c, 0xe6, 0x5f, 0x03, 0xbc, 0x01, 0x41, 0x9b,
+	0x7f, 0xeb, 0x23, 0xee, 0x45, 0x0c, 0x85, 0xa4, 0xcc, 0x59, 0x29, 0xa0, 0x63, 0x58, 0x59, 0x10,
+	0xb1, 0x4a, 0x40, 0x2f, 0xe7, 0xdf, 0x03, 0x46, 0x23, 0xfe, 0xa3, 0x8f, 0x86, 0xc9, 0x99, 0x26,
+	0x48, 0xf9, 0xcf, 0x30, 0xf9, 0xba, 0x64, 0xd5, 0x90, 0x44, 0x19, 0xff, 0x25, 0xb0, 0xfc, 0xb7,
+	0xc0, 0xb3, 0x5a, 0x40, 0x52, 0xf2, 0x3f, 0x01, 0xae, 0xe4, 0x7f, 0x03, 0x7c, 0xc4, 0xf4, 0x80,
+	0x3a, 0xe3, 0xff, 0xfa, 0xc8, 0x7b, 0x86, 0x19, 0x7d, 0x34, 0x4d, 0xc5, 0xff, 0x07, 0xc4, 0x86,
+	0xd5, 0x05, 0x11, 0x9f, 0x0b, 0xcf, 0xb0, 0x67, 0xf8, 0x7c, 0x1f, 0xa3, 0xb1, 0xe3, 0x0b, 0x52,
+	0xea, 0x30, 0x33, 0xc0, 0x79, 0xbe, 0x28, 0x28, 0x59, 0x23, 0xc0, 0x47, 0xac, 0x19, 0xee, 0xd4,
+	0x77, 0xf8, 0x52, 0x48, 0xa2, 0x92, 0x2f, 0xf7, 0x51, 0xf8, 0x92, 0x59, 0x61, 0x2d, 0x92, 0x0e,
+	0x5f, 0x09, 0x57, 0xce, 0x5a, 0x7c, 0x35, 0x24, 0xa3, 0x8e, 0xaf, 0x85, 0xfb, 0x2a, 0x1c, 0xb3,
+	0x03, 0xca, 0x8a, 0xb5, 0x02, 0xba, 0x11, 0x5f, 0x0f, 0xcb, 0x64, 0x1c, 0xdf, 0x08, 0x48, 0x46,
+	0xf8, 0xa6, 0xc0, 0xf2, 0xad, 0x80, 0x3a, 0xe3, 0xdb, 0x7d, 0xb4, 0xb3, 0x36, 0xdf, 0xe9, 0x23,
+	0x35, 0x15, 0xdf, 0x0d, 0x57, 0x8e, 0x6a, 0xbe, 0x17, 0xae, 0x93, 0x65, 0x7c, 0x3f, 0xf4, 0x78,
+	0xcb, 0x0f, 0x02, 0xea, 0x11, 0x7e, 0x18, 0xa6, 0x6a, 0x2a, 0xd6, 0x16, 0xd4, 0xfc, 0x28, 0x20,
+	0x6a, 0x60, 0x04, 0x9e, 0x46, 0x40, 0x62, 0x69, 0x06, 0xe4, 0x8e, 0x56, 0x40, 0x6d, 0x89, 0xfa,
+	0x48, 0xac, 0x61, 0x58, 0xd0, 0xa2, 0x1d, 0x90, 0x45, 0xc4, 0x32, 0x9f, 0x88, 0x24, 0x24, 0x0d,
+	0xc7, 0x48, 0x40, 0x91, 0x92, 0x06, 0xb4, 0x1c, 0x59, 0x40, 0x99, 0x91, 0x07, 0x54, 0x06, 0x1b,
+	0x90, 0xd6, 0xb8, 0x3e, 0x46, 0x0a, 0x4b, 0x11, 0x60, 0x3a, 0xcc, 0x91, 0xfb, 0xca, 0xf0, 0x02,
+	0x4b, 0x29, 0xa8, 0xa9, 0x04, 0x25, 0xb5, 0x60, 0x94, 0x4e, 0x40, 0x9c, 0xd3, 0x0d, 0x48, 0x52,
+	0xe6, 0x0a, 0x2c, 0x3d, 0x81, 0x67, 0x34, 0xc0, 0xe5, 0xfc, 0x58, 0x60, 0xf9, 0x89, 0xc0, 0xf3,
+	0xd3, 0x80, 0xda, 0xf3, 0x33, 0x81, 0xe1, 0xe7, 0x7d, 0x64, 0xa6, 0xe2, 0x17, 0x01, 0xd5, 0x28,
+	0xf3, 0x02, 0xea, 0x36, 0xeb, 0x04, 0x24, 0x39, 0xf3, 0x05, 0x96, 0x05, 0xd2, 0xec, 0x18, 0x93,
+	0xa4, 0x62, 0x5d, 0x69, 0x6e, 0xb0, 0x9e, 0x94, 0x3a, 0xfc, 0x52, 0x9e, 0x4f, 0x87, 0x85, 0xe1,
+	0x3d, 0x4c, 0x5b, 0xfc, 0x2a, 0x20, 0x6b, 0xf3, 0xeb, 0x80, 0xd2, 0xb0, 0x28, 0xc0, 0x64, 0xac,
+	0x2f, 0xa5, 0x8a, 0x0d, 0x02, 0x7c, 0xc2, 0x62, 0x29, 0x79, 0x96, 0x08, 0x62, 0x36, 0x0c, 0x70,
+	0x96, 0x8d, 0xc2, 0xab, 0x65, 0x6a, 0x36, 0x16, 0x74, 0x18, 0x0f, 0x68, 0x45, 0x2c, 0x0d, 0x28,
+	0x1d, 0xbf, 0x09, 0x88, 0x0a, 0x7e, 0x2b, 0x25, 0xc7, 0x26, 0xf2, 0xdd, 0xf0, 0x6c, 0x1a, 0x96,
+	0x20, 0x49, 0xf8, 0x5d, 0x48, 0x1a, 0x19, 0xbf, 0xef, 0xc3, 0x35, 0x13, 0xfe, 0x10, 0x30, 0x92,
+	0xf0, 0x47, 0xf9, 0x15, 0xd4, 0xfc, 0x29, 0x24, 0x3e, 0xe7, 0xcf, 0x43, 0x93, 0xfb, 0x48, 0xd8,
+	0x6c, 0x42, 0x50, 0x59, 0xb2, 0x79, 0x50, 0x61, 0x2c, 0x5b, 0x88, 0xb2, 0x84, 0x2d, 0x83, 0x86,
+	0x4d, 0xc9, 0x56, 0x92, 0xb9, 0x8c, 0xad, 0x45, 0x75, 0xc9, 0x36, 0x9a, 0x79, 0xb6, 0x0d, 0x9a,
+	0x53, 0x47, 0x6c, 0x17, 0xe4, 0x5d, 0xcc, 0xf6, 0xa2, 0xda, 0xb2, 0x83, 0x66, 0x96, 0x1d, 0x35,
+	0x2b, 0xd9, 0x29, 0xa8, 0x34, 0x96, 0x9d, 0x45, 0xbe, 0xc5, 0x2e, 0x22, 0xdb, 0x62, 0x57, 0x51,
+	0xee, 0xd8, 0x4d, 0xfb, 0xda, 0xec, 0xae, 0x7d, 0x05, 0x7b, 0x04, 0xb5, 0x33, 0xc3, 0x9e, 0x3a,
+	0xc2, 0xb0, 0x97, 0x28, 0xb1, 0xec, 0x2d, 0xca, 0x52, 0xf6, 0x51, 0x75, 0xd8, 0x57, 0xe4, 0x72,
+	0xf6, 0x53, 0x55, 0xec, 0x2f, 0x2a, 0x0c, 0x07, 0x88, 0x6a, 0xcb, 0x81, 0xa2, 0xae, 0xe1, 0x20,
+	0x51, 0xd9, 0xe5, 0xe0, 0xa0, 0xca, 0xe4, 0x1c, 0x22, 0x8a, 0x32, 0x0e, 0x15, 0xb5, 0x53, 0x0e,
+	0x13, 0xc5, 0x86, 0xc3, 0x45, 0x89, 0xe7, 0x88, 0xa0, 0x86, 0x6b, 0x71, 0xa4, 0x64, 0x75, 0xca,
+	0x51, 0x3a, 0x22, 0xe3, 0x68, 0x79, 0xa6, 0x49, 0xc6, 0x31, 0x92, 0x95, 0x96, 0x63, 0x45, 0xce,
+	0x72, 0x9c, 0x8e, 0xf0, 0x1c, 0xaf, 0x55, 0xc7, 0x09, 0x3a, 0x83, 0x8a, 0x13, 0x45, 0xdd, 0x84,
+	0x93, 0x34, 0x8b, 0x39, 0x39, 0xa8, 0x4e, 0xda, 0x9c, 0x22, 0x4a, 0x3d, 0xa7, 0x8a, 0x7c, 0x8b,
+	0xd3, 0x44, 0xa3, 0x0d, 0x4e, 0x0f, 0xea, 0x44, 0x96, 0x33, 0x44, 0x49, 0xc4, 0x99, 0x22, 0x97,
+	0x71, 0x56, 0x50, 0x37, 0xb3, 0x9c, 0x1d, 0xd4, 0xec, 0xe5, 0x9c, 0x23, 0x99, 0xcb, 0x38, 0x57,
+	0xe6, 0xec, 0x7b, 0x9c, 0x17, 0x34, 0x37, 0x76, 0x9c, 0x1f, 0xd4, 0x4b, 0x5a, 0x5c, 0x20, 0x72,
+	0x9e, 0x0b, 0x83, 0x46, 0x63, 0xc3, 0x45, 0xa2, 0x3a, 0xe3, 0xe2, 0x20, 0xd3, 0x8c, 0xb8, 0x44,
+	0x15, 0x73, 0xa9, 0xa8, 0x65, 0xb8, 0x4c, 0xd5, 0xe3, 0x72, 0xd1, 0xb0, 0xe1, 0x0a, 0x55, 0xcc,
+	0x95, 0xa2, 0xc4, 0x72, 0x95, 0x28, 0x4d, 0xb9, 0x5a, 0x94, 0x45, 0x5c, 0xa3, 0x6a, 0x73, 0xad,
+	0xaa, 0xe2, 0x3a, 0x91, 0x6d, 0x73, 0xbd, 0xaa, 0xe0, 0x06, 0x51, 0x61, 0xb8, 0x51, 0xe4, 0x9b,
+	0xdc, 0xa4, 0xb2, 0xdc, 0xac, 0x2a, 0xb8, 0x45, 0x55, 0x71, 0xab, 0xaa, 0xcb, 0x6d, 0xa2, 0xb2,
+	0xe2, 0x76, 0x51, 0x15, 0x73, 0x87, 0xa8, 0x2e, 0xb9, 0x53, 0xd4, 0x35, 0xdc, 0x25, 0x6b, 0x6e,
+	0x5a, 0xdc, 0xad, 0x4a, 0xb8, 0x47, 0x95, 0x71, 0xaf, 0xca, 0x72, 0x9f, 0xaa, 0xe4, 0x7e, 0x55,
+	0xc5, 0x03, 0xa2, 0x68, 0x84, 0x07, 0x55, 0x39, 0x0f, 0x89, 0x62, 0xc7, 0xc3, 0xa2, 0x24, 0xe5,
+	0x11, 0x95, 0xe5, 0x51, 0x51, 0x66, 0x78, 0x4c, 0x64, 0x2b, 0x1e, 0x17, 0x79, 0xc3, 0x13, 0xa2,
+	0x2a, 0xe5, 0x49, 0x51, 0x6d, 0x78, 0x4a, 0xd5, 0xe6, 0x69, 0x51, 0xcf, 0xf2, 0x8c, 0xac, 0xb4,
+	0x69, 0xf1, 0xac, 0x2a, 0xe1, 0x39, 0x95, 0xe7, 0x79, 0x55, 0xcd, 0x0b, 0xa2, 0xa8, 0xc1, 0x8b,
+	0xaa, 0x8c, 0x97, 0x44, 0x71, 0x83, 0x97, 0x55, 0x6d, 0x5e, 0x51, 0xa5, 0xbc, 0xaa, 0xca, 0x79,
+	0x4d, 0x65, 0x79, 0x5d, 0xe5, 0x78, 0x43, 0x55, 0xf0, 0xa6, 0xca, 0xf3, 0x96, 0xaa, 0xc7, 0xdb,
+	0xa2, 0xbc, 0xc9, 0x3b, 0x22, 0x57, 0xf0, 0xae, 0xa8, 0x88, 0x78, 0x4f, 0x35, 0xcc, 0xfb, 0xaa,
+	0x82, 0x0f, 0x44, 0x3e, 0xe6, 0x43, 0x55, 0xc1, 0x47, 0xa2, 0xb2, 0xc1, 0xc7, 0xa2, 0xba, 0xe4,
+	0x93, 0xa0, 0x96, 0x49, 0xf9, 0x54, 0xe5, 0xd9, 0x6c, 0xa2, 0xa8, 0xc7, 0xe6, 0xa2, 0x28, 0x63,
+	0x0b, 0x95, 0x65, 0x4b, 0x51, 0xdb, 0xb3, 0x95, 0x28, 0xb1, 0x6c, 0x2d, 0x72, 0x09, 0xdb, 0x88,
+	0xbc, 0x61, 0x5b, 0x51, 0xd9, 0x60, 0x3b, 0x51, 0x6d, 0xd8, 0x5e, 0x95, 0xb3, 0x83, 0xa8, 0x57,
+	0xb3, 0x63, 0x50, 0x34, 0x9c, 0xb0, 0x93, 0xa8, 0xdd, 0x63, 0x67, 0x51, 0x6a, 0xd8, 0x45, 0x94,
+	0xcd, 0x65, 0x57, 0x91, 0xcd, 0xd9, 0x4d, 0xd4, 0x75, 0xec, 0x3e, 0x51, 0xbe, 0xc5, 0x96, 0x3d,
+	0x54, 0x15, 0x7b, 0x8a, 0x92, 0x9a, 0xbd, 0x44, 0xce, 0xb2, 0xb7, 0xc8, 0xe7, 0xec, 0xa3, 0x72,
+	0xec, 0xab, 0xf2, 0xec, 0xa7, 0x2a, 0xd9, 0x5f, 0x54, 0x7b, 0x0e, 0x08, 0x6a, 0x1b, 0xc3, 0x81,
+	0xaa, 0x1e, 0x07, 0x89, 0x1a, 0x86, 0x83, 0x45, 0x51, 0xce, 0x21, 0xaa, 0x51, 0x0e, 0x15, 0x25,
+	0x19, 0x87, 0x89, 0xf2, 0x98, 0xc3, 0x45, 0x2e, 0xe6, 0x08, 0x95, 0xe5, 0x48, 0x95, 0xe7, 0x28,
+	0x55, 0xc5, 0xd1, 0x22, 0xdf, 0xe0, 0x18, 0x55, 0x93, 0x63, 0x45, 0x65, 0x97, 0xe3, 0x44, 0xdd,
+	0x84, 0xe3, 0x83, 0x62, 0x93, 0x70, 0x82, 0xaa, 0xcb, 0x89, 0xa2, 0x24, 0xe3, 0x24, 0x55, 0xce,
+	0xc9, 0xaa, 0x8a, 0x53, 0x44, 0xb9, 0xe5, 0x54, 0x51, 0xd9, 0xe0, 0x34, 0x51, 0x5d, 0x70, 0x7a,
+	0x50, 0xd2, 0x30, 0x9c, 0x21, 0x1a, 0x71, 0x9c, 0x29, 0xca, 0x1c, 0x67, 0x89, 0x6c, 0x93, 0xb3,
+	0x55, 0x11, 0xe7, 0xa8, 0x62, 0xce, 0x15, 0x79, 0xc3, 0x79, 0x2a, 0xc7, 0xf9, 0x41, 0x23, 0x0d,
+	0xc7, 0x05, 0xa2, 0xc2, 0x73, 0xa1, 0xc8, 0x37, 0xb8, 0x28, 0x28, 0x35, 0x86, 0x8b, 0x55, 0x0d,
+	0x2e, 0x51, 0x35, 0xb9, 0x54, 0x95, 0x73, 0x99, 0xca, 0x73, 0xb9, 0xaa, 0xcb, 0x15, 0xa2, 0x46,
+	0x8b, 0x2b, 0x45, 0xb1, 0xe1, 0x2a, 0x55, 0xc2, 0xd5, 0x2a, 0xc7, 0x35, 0xa2, 0xbc, 0xc1, 0xb5,
+	0x22, 0x97, 0x72, 0x9d, 0xaa, 0xe4, 0x7a, 0x51, 0x11, 0x71, 0x83, 0xc8, 0x37, 0xb9, 0x51, 0x95,
+	0x71, 0x93, 0xca, 0x71, 0xb3, 0xaa, 0xe6, 0x16, 0x51, 0x9d, 0x73, 0xab, 0xaa, 0xe2, 0xb6, 0xa0,
+	0xcc, 0xb4, 0xb8, 0x5d, 0x15, 0x73, 0x87, 0x2a, 0xe7, 0x4e, 0x51, 0x34, 0xca, 0x5d, 0x22, 0x97,
+	0x71, 0xb7, 0x6a, 0x94, 0x7b, 0x44, 0xb5, 0xe1, 0x5e, 0x55, 0xc2, 0x7d, 0x2a, 0xcb, 0xfd, 0x2a,
+	0xc7, 0x03, 0xaa, 0x92, 0x07, 0x83, 0x72, 0xd3, 0xe2, 0x21, 0x55, 0x9b, 0x87, 0x55, 0x09, 0x8f,
+	0xa8, 0x52, 0x1e, 0x55, 0x59, 0x1e, 0x53, 0x15, 0x3c, 0xae, 0x2a, 0x79, 0x42, 0xd4, 0x1a, 0xe6,
+	0x49, 0x95, 0xe7, 0x29, 0x51, 0x64, 0x79, 0x5a, 0xd4, 0x36, 0x3c, 0x23, 0x4a, 0x9a, 0x3c, 0xab,
+	0xb2, 0x3c, 0xa7, 0x2a, 0x79, 0x5e, 0x94, 0xc6, 0xbc, 0x20, 0xb2, 0x4d, 0x5e, 0x54, 0x25, 0xbc,
+	0xa4, 0x72, 0xbc, 0x2c, 0x72, 0x31, 0xaf, 0xa8, 0x4a, 0x5e, 0x15, 0xd5, 0x19, 0xaf, 0xa9, 0x2c,
+	0xaf, 0xab, 0x4a, 0xde, 0x10, 0x75, 0x33, 0xde, 0x54, 0x79, 0xde, 0x12, 0xf5, 0x2c, 0x6f, 0xab,
+	0x3a, 0xbc, 0x13, 0x64, 0x4d, 0xcc, 0xbb, 0xaa, 0x84, 0xf7, 0x54, 0x05, 0xef, 0x8b, 0x5a, 0x25,
+	0x1f, 0x88, 0xa2, 0x2e, 0x1f, 0x8a, 0x12, 0xc3, 0x47, 0xaa, 0x26, 0x1f, 0xab, 0x6a, 0x3e, 0x11,
+	0xb9, 0x36, 0x9f, 0xaa, 0x2c, 0x9b, 0x0d, 0x04, 0xcd, 0x71, 0x6c, 0x2e, 0xaa, 0x1b, 0x6c, 0x21,
+	0xea, 0x36, 0xd9, 0x52, 0xd4, 0xcb, 0xd9, 0x4a, 0x65, 0xd9, 0x5a, 0xe5, 0xd8, 0x46, 0x34, 0x9a,
+	0xb0, 0xed, 0x80, 0xec, 0x22, 0x0d, 0xdb, 0x89, 0x2a, 0xc3, 0xf6, 0x2a, 0xc7, 0x0e, 0x03, 0xb2,
+	0xb3, 0x34, 0xec, 0xa8, 0x6a, 0xb3, 0x93, 0x2a, 0x63, 0x67, 0x55, 0xce, 0x2e, 0xaa, 0x82, 0x5d,
+	0x55, 0x35, 0xbb, 0x89, 0x22, 0xc7, 0xee, 0xa2, 0x38, 0x61, 0x0f, 0x95, 0x65, 0x4f, 0x91, 0xb3,
+	0xec, 0x25, 0xf2, 0x86, 0xbd, 0x55, 0x8e, 0x7d, 0x82, 0xbc, 0x19, 0x61, 0x5f, 0x55, 0xc1, 0x7e,
+	0x2a, 0xcf, 0xfe, 0x22, 0x67, 0x38, 0x40, 0x95, 0x73, 0xa0, 0xa8, 0x2e, 0x38, 0x68, 0x40, 0xf6,
+	0x9d, 0x2d, 0x0e, 0x56, 0xc5, 0x1c, 0xa2, 0x4a, 0x38, 0x54, 0x95, 0x71, 0x98, 0x2a, 0xe7, 0x70,
+	0x55, 0xc9, 0x11, 0xaa, 0x8a, 0x23, 0x45, 0x4d, 0xcb, 0x51, 0x2a, 0xc7, 0xd1, 0xa2, 0x28, 0xe3,
+	0x18, 0x55, 0xce, 0xb1, 0xa2, 0xb6, 0xe1, 0x38, 0x95, 0xe5, 0x78, 0x51, 0x6c, 0x39, 0x41, 0x94,
+	0xb4, 0x38, 0x51, 0xe5, 0x38, 0x49, 0x55, 0x71, 0xb2, 0x28, 0x33, 0x9c, 0x22, 0xca, 0x13, 0x4e,
+	0x55, 0x59, 0x4e, 0x53, 0x95, 0x9c, 0x2e, 0xb2, 0x29, 0x67, 0x88, 0x5c, 0x9b, 0x33, 0x55, 0x96,
+	0xb3, 0x44, 0xde, 0x72, 0xb6, 0xca, 0x73, 0x8e, 0xa8, 0x34, 0x9c, 0x2b, 0xaa, 0x53, 0xce, 0x53,
+	0x95, 0x9c, 0xaf, 0x9a, 0xcb, 0x05, 0xa2, 0x5e, 0x93, 0x0b, 0x55, 0x9e, 0x8b, 0x06, 0x64, 0x7f,
+	0x9a, 0x70, 0xb1, 0x28, 0xca, 0xb9, 0x44, 0xe5, 0xb9, 0x54, 0x55, 0x71, 0x99, 0x28, 0x69, 0x73,
+	0xb9, 0xaa, 0xc3, 0x15, 0xa2, 0x34, 0xe3, 0x4a, 0x51, 0x16, 0x73, 0x95, 0x2a, 0xe1, 0x6a, 0x51,
+	0x1e, 0x73, 0x8d, 0xc8, 0xb5, 0xb9, 0x56, 0x54, 0x24, 0x5c, 0x27, 0x2a, 0x13, 0xae, 0x17, 0xd5,
+	0x39, 0x37, 0xa8, 0x0a, 0x6e, 0x54, 0x55, 0xdc, 0x24, 0xea, 0x64, 0xdc, 0x2c, 0xea, 0x75, 0xb8,
+	0x25, 0xa8, 0x6e, 0xe5, 0xdc, 0x2a, 0x6a, 0x1b, 0x6e, 0x13, 0xe5, 0x0d, 0x6e, 0x0f, 0xea, 0x98,
+	0x84, 0x3b, 0x44, 0xae, 0xe2, 0xce, 0xa0, 0xae, 0x49, 0xb9, 0x4b, 0x95, 0x71, 0xb7, 0xca, 0x73,
+	0x8f, 0xaa, 0xe4, 0x5e, 0x51, 0x64, 0xb9, 0x2f, 0x68, 0xae, 0xc9, 0xb8, 0x3f, 0xa8, 0x67, 0x1c,
+	0x0f, 0xa8, 0x0a, 0x1e, 0x14, 0x15, 0x29, 0x0f, 0x05, 0x8d, 0x9a, 0x82, 0x87, 0x45, 0x8d, 0x8c,
+	0x47, 0x44, 0x91, 0xe5, 0x51, 0x51, 0x3b, 0xe6, 0x31, 0x91, 0x6d, 0xf1, 0xb8, 0xa8, 0xb6, 0x3c,
+	0x21, 0x9a, 0x3b, 0x97, 0x27, 0x45, 0xa3, 0x86, 0xa7, 0x06, 0x66, 0x57, 0x83, 0x93, 0x73, 0x3d,
+	0x43, 0x1b, 0x8a, 0x07, 0xa7, 0xfe, 0xe3, 0x59, 0xd8, 0xd0, 0xaa, 0xe1, 0xfc, 0xea, 0x33, 0x4f,
+	0xd3, 0x56, 0x9d, 0xf6, 0x99, 0xb5, 0x25, 0x8b, 0x36, 0x9d, 0xb1, 0xcc, 0x3a, 0xcb, 0x85, 0xe3,
+	0xb8, 0xb5, 0xfe, 0x12, 0x00, 0x00, 0xff, 0xff, 0xca, 0x2d, 0xb1, 0x4d, 0xa0, 0x13, 0x00, 0x00,
 }
