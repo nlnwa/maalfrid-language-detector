@@ -14,23 +14,32 @@
 
 syntax = "proto3";
 
-package maalfrid;
+package api;
 
 // Detect language of a text
 service Maalfrid {
-  rpc DetectLanguage(DetectLanguageRequest) returns (DetectLanguageReply) {}
+    rpc DetectLanguage (DetectLanguageRequest) returns (DetectLanguageReply) {
+    }
 }
 
 // Request message for `Maalfrid.DetectLanguage`
 message DetectLanguageRequest {
-  string text = 1;
+    string text = 1;
 }
 
 // Reply message for `Maalfrid.DetectLanguage`
 message DetectLanguageReply {
-  // Language codes in ISO 639-3:2007 format
-  enum Language {
-    UNKNOWN = 0;
+    repeated Language languages = 1;
+}
+
+message Language {
+    Code code = 1;
+    double count = 2;
+}
+
+// Language codes in ISO 639-3:2007 format
+enum Code {
+    UND = 0;
     NOB = 1;
     NNO = 2;
     DAN = 3;
@@ -496,28 +505,23 @@ message DetectLanguageReply {
     UDM = 463;
     UGA = 464;
     UMB = 465;
-    UND = 466;
-    VAI = 467;
-    VOT = 468;
-    WAK = 469;
-    WAL = 470;
-    WAR = 471;
-    WAS = 472;
-    WEN = 473;
-    XAL = 474;
-    YAO = 475;
-    YAP = 476;
-    YPK = 477;
-    ZAP = 478;
-    ZBL = 479;
-    ZEN = 480;
-    ZGH = 481;
-    ZND = 482;
-    ZUN = 483;
-    ZXX = 484;
-    ZZA = 485;
-  }
-
-  // The detected language
-  Language language = 1;
+    VAI = 466;
+    VOT = 467;
+    WAK = 468;
+    WAL = 469;
+    WAR = 470;
+    WAS = 471;
+    WEN = 472;
+    XAL = 473;
+    YAO = 474;
+    YAP = 475;
+    YPK = 476;
+    ZAP = 477;
+    ZBL = 478;
+    ZEN = 479;
+    ZGH = 480;
+    ZND = 481;
+    ZUN = 482;
+    ZXX = 483;
+    ZZA = 484;
 }
