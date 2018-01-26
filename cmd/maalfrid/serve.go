@@ -29,54 +29,41 @@ import (
 	"github.com/nlnwa/pkg/log"
 )
 
-// functional configuration
 type serveConfig struct {
-	port int
+	port  int
+	count int
 	log.Logger
 }
 
-type serveOption func(*serveConfig)
-
-func withLogger(logger log.Logger) serveOption {
-	return func(opts *serveConfig) {
-		opts.Logger = logger
-	}
+var serveCmd = &cobra.Command{
+	Use:   "serve",
+	Short: "Maalfrid language detector service",
+	Long:  `Maalfrid language detector service`,
+	Run: func(cmd *cobra.Command, args []string) {
+		cfg := serveConfig{
+			port:  viper.GetInt("port"),
+			count: viper.GetInt("count"),
+		}
+		if err := serve(cfg); err != nil {
+			logger.Error(err.Error())
+			os.Exit(1)
+		}
+	},
 }
 
-func withPort(port int) serveOption {
-	return func(opts *serveConfig) {
-		opts.port = port
-	}
-}
-
-func commandServe() *cobra.Command {
-	serveCmd := &cobra.Command{
-		Use:   "serve",
-		Short: "Maalfrid language detector service",
-		Long:  `Maalfrid language detector service`,
-		Run: func(cmd *cobra.Command, args []string) {
-
-			port := viper.GetInt("port")
-
-			if err := serve(withPort(port), withLogger(logger)); err != nil {
-				logger.Error(err.Error())
-				os.Exit(1)
-			}
-		},
-	}
+func init() {
 	serveCmd.Flags().Int("port", 8672, "server listening port")
+	serveCmd.Flags().Int("count", 5, "number of suggested languages in replies")
 	viper.BindPFlag("port", serveCmd.Flags().Lookup("port"))
+	viper.BindPFlag("count", serveCmd.Flags().Lookup("count"))
 
-	return serveCmd
+	rootCmd.AddCommand(serveCmd)
 }
 
-func serve(opts ...serveOption) error {
-	var cfg serveConfig
-	for _, opt := range opts {
-		opt(&cfg)
-	}
+func serve(cfg serveConfig) error {
 	port := cfg.port
 	logger := cfg.Logger
+	count := cfg.count
 
 	var grpcOpts []grpc.ServerOption
 
@@ -87,7 +74,7 @@ func serve(opts ...serveOption) error {
 		logger.Info("API server listening", "port", port)
 	}
 	srv := grpc.NewServer(grpcOpts...)
-	api.RegisterMaalfridServer(srv, maalfrid.NewApiServer())
+	api.RegisterMaalfridServer(srv, maalfrid.NewApiServer(maalfrid.WithLimit(count)))
 
 	return srv.Serve(listener)
 }

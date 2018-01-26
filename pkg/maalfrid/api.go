@@ -9,10 +9,26 @@ import (
 	"github.com/nlnwa/maalfrid/api"
 )
 
-type maalfridApi struct{}
+type maalfridApi struct {
+	// limit number of suggested languages in response
+	limit int
+}
 
-func NewApiServer() api.MaalfridServer {
-	return new(maalfridApi)
+type serverOption func(*maalfridApi)
+
+func WithLimit(n int) serverOption {
+	return func(srv *maalfridApi) {
+		srv.limit = n
+	}
+}
+
+func NewApiServer(opts ...serverOption) api.MaalfridServer {
+	srv := new(maalfridApi)
+	// apply functional options
+	for _, opt := range opts {
+		opt(srv)
+	}
+	return srv
 }
 
 func (m *maalfridApi) DetectLanguage(ctx context.Context, req *api.DetectLanguageRequest) (*api.DetectLanguageReply, error) {
@@ -20,7 +36,7 @@ func (m *maalfridApi) DetectLanguage(ctx context.Context, req *api.DetectLanguag
 
 	res := franco.Detect(req.Text)
 
-	for i := range res[:5] {
+	for i := range res[:m.limit] {
 		code := api.Code(api.Code_value[strings.ToUpper(res[i].Code)])
 		l := &api.Language{Code: code, Count: res[i].Count}
 		languages = append(languages, l)

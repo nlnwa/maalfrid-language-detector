@@ -41,9 +41,7 @@ func init() {
 		viper.SetEnvKeyReplacer(strings.NewReplacer("-", "_"))
 		viper.AutomaticEnv()
 	})
-
-	rootCmd.Flags().BoolVar(&debug, "debug", false, "enable debug")
-	rootCmd.AddCommand(commandServe())
+	rootCmd.PersistentFlags().BoolVar(&debug, "debug", false, "enable debug")
 }
 
 func getLogger() log.Logger {
