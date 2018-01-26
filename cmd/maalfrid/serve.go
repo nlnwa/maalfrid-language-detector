@@ -32,7 +32,7 @@ import (
 type serveConfig struct {
 	port  int
 	count int
-	log.Logger
+	logger log.Logger
 }
 
 var serveCmd = &cobra.Command{
@@ -41,8 +41,9 @@ var serveCmd = &cobra.Command{
 	Long:  `Maalfrid language detector service`,
 	Run: func(cmd *cobra.Command, args []string) {
 		cfg := serveConfig{
-			port:  viper.GetInt("port"),
-			count: viper.GetInt("count"),
+			port:   viper.GetInt("port"),
+			count:  viper.GetInt("count"),
+			logger: logger,
 		}
 		if err := serve(cfg); err != nil {
 			logger.Error(err.Error())
@@ -62,7 +63,7 @@ func init() {
 
 func serve(cfg serveConfig) error {
 	port := cfg.port
-	logger := cfg.Logger
+	logger := cfg.logger
 	count := cfg.count
 
 	var grpcOpts []grpc.ServerOption
