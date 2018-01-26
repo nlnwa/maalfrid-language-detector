@@ -1,6 +1,6 @@
 FROM golang:1.9.2-alpine
 
-RUN apk add --no-cache --update alpine-sdk
+RUN apk add --no-cache --update alpine-sdk protobuf protobuf-dev
 
 COPY . /go/src/github.com/nlnwa/maalfrid
 RUN cd /go/src/github.com/nlnwa/maalfrid && make release-binary
