@@ -36,7 +36,11 @@ func (m *maalfridApi) DetectLanguage(ctx context.Context, req *api.DetectLanguag
 
 	res := franco.Detect(req.Text)
 
-	for i := range res[:m.limit] {
+	limit := m.limit
+	if len(res) < m.limit {
+		limit = len(res)
+	}
+	for i := range res[:limit] {
 		code := api.Code(api.Code_value[strings.ToUpper(res[i].Code)])
 		l := &api.Language{Code: code, Count: res[i].Count}
 		languages = append(languages, l)
