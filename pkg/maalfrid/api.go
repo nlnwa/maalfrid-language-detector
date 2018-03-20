@@ -6,7 +6,7 @@ import (
 
 	"github.com/kapsteur/franco"
 
-	"github.com/nlnwa/maalfrid/api"
+	"github.com/nlnwa/maalfrid-language-detector/api"
 )
 
 type maalfridApi struct {

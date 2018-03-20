@@ -1,4 +1,4 @@
-PROJ:=maalfrid
+PROJ:=maalfrid-language-detector
 ORG_PATH:=github.com/nlnwa
 REPO_PATH:=$(ORG_PATH)/$(PROJ)
 VERSION ?= $(shell ./scripts/git-version)
@@ -11,7 +11,7 @@ LD_FLAGS="-w -X $(REPO_PATH)/version.Version=$(VERSION)"
 .PHONY: release-binary install-dep api
 
 install:
-	@CGO_ENABLED=0 go build -a -tags netgo -v -ldflags $(LD_FLAGS) $(REPO_PATH)/cmd/$(PROJ)
+	@CGO_ENABLED=0 go build -a -tags netgo -v -ldflags $(LD_FLAGS) $(REPO_PATH)/cmd/maalfrid
 
 api:
 	@$(MAKE) -C ./api

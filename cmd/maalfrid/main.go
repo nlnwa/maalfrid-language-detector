@@ -22,7 +22,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/nlnwa/maalfrid/pkg/version"
+	"github.com/nlnwa/maalfrid-language-detector/pkg/version"
 	"github.com/nlnwa/pkg/log"
 	"github.com/nlnwa/pkg/logfmt"
 )

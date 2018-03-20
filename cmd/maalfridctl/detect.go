@@ -22,7 +22,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/nlnwa/maalfrid/pkg/maalfrid"
+	"github.com/nlnwa/maalfrid-language-detector/pkg/maalfrid"
 )
 
 var detectCmd = &cobra.Command{
