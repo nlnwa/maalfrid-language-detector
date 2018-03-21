@@ -24,15 +24,16 @@ import (
 	"github.com/spf13/viper"
 	"google.golang.org/grpc"
 
-	"github.com/nlnwa/maalfrid/api"
-	"github.com/nlnwa/maalfrid/pkg/maalfrid"
+	"github.com/nlnwa/maalfrid-language-detector/api"
+	"github.com/nlnwa/maalfrid-language-detector/pkg/maalfrid"
 	"github.com/nlnwa/pkg/log"
 )
 
 type serveConfig struct {
-	port  int
-	count int
-	logger log.Logger
+	port           int
+	count          int
+	maxRecvMsgSize int
+	logger         log.Logger
 }
 
 var serveCmd = &cobra.Command{
@@ -41,9 +42,10 @@ var serveCmd = &cobra.Command{
 	Long:  `Maalfrid language detector service`,
 	Run: func(cmd *cobra.Command, args []string) {
 		cfg := serveConfig{
-			port:   viper.GetInt("port"),
-			count:  viper.GetInt("count"),
-			logger: logger,
+			port:           viper.GetInt("port"),
+			count:          viper.GetInt("count"),
+			maxRecvMsgSize: viper.GetInt("max-recv-msg-size"),
+			logger:         logger,
 		}
 		if err := serve(cfg); err != nil {
 			logger.Error(err.Error())
@@ -55,8 +57,10 @@ var serveCmd = &cobra.Command{
 func init() {
 	serveCmd.Flags().Int("port", 8672, "server listening port")
 	serveCmd.Flags().Int("count", 5, "number of suggested languages in replies")
+	serveCmd.Flags().Int("max-recv-msg-size", 10000000, "max message size server can receive ")
 	viper.BindPFlag("port", serveCmd.Flags().Lookup("port"))
 	viper.BindPFlag("count", serveCmd.Flags().Lookup("count"))
+	viper.BindPFlag("max-recv-msg-size", serveCmd.Flags().Lookup("max-recv-msg-size"))
 
 	rootCmd.AddCommand(serveCmd)
 }
@@ -65,8 +69,9 @@ func serve(cfg serveConfig) error {
 	port := cfg.port
 	logger := cfg.logger
 	count := cfg.count
+	maxRecvMsgSize := cfg.maxRecvMsgSize
 
-	var grpcOpts []grpc.ServerOption
+	grpcOpts := []grpc.ServerOption{grpc.MaxRecvMsgSize(maxRecvMsgSize)}
 
 	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {

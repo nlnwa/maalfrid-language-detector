@@ -21,7 +21,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/nlnwa/maalfrid/api"
+	"github.com/nlnwa/maalfrid-language-detector/api"
 	"github.com/pkg/errors"
 )
 
