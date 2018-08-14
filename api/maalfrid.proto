@@ -14,7 +14,8 @@
 
 syntax = "proto3";
 
-package api;
+package maalfrid.api;
+option go_package = "api";
 
 // Detect language of a text
 service Maalfrid {
