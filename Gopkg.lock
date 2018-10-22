@@ -116,6 +116,14 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:fff5c1b697a15763298eb595153878a08edc31ed286f5a3a21aa82adac6414cd"
+  name = "github.com/nlnwa/maalfrid-api"
+  packages = ["gen/go/maalfrid/service/language"]
+  pruneopts = "UT"
+  revision = "fdcd95fa03735723988d3e3a06d679c90b37dcf1"
+
+[[projects]]
+  branch = "master"
   digest = "1:a4e8bbb322bd35d6b0e005538bc5765d9014b69f9f18f60efff7274b800e36c3"
   name = "github.com/nlnwa/pkg"
   packages = [
@@ -302,16 +310,15 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/golang/protobuf/proto",
     "github.com/inconshreveable/log15",
     "github.com/kapsteur/franco",
     "github.com/mitchellh/go-homedir",
+    "github.com/nlnwa/maalfrid-api/gen/go/maalfrid/service/language",
     "github.com/nlnwa/pkg/log",
     "github.com/nlnwa/pkg/logfmt",
     "github.com/pkg/errors",
     "github.com/spf13/cobra",
     "github.com/spf13/viper",
-    "golang.org/x/net/context",
     "google.golang.org/grpc",
   ]
   solver-name = "gps-cdcl"

@@ -31,9 +31,7 @@ var debug bool
 var logger = getLogger()
 
 var rootCmd = &cobra.Command{
-	Use:   "maalfrid",
-	Short: "Twitter API client",
-	Long:  `Twitter API client`,
+	Use: "maalfrid",
 }
 
 func init() {
@@ -56,7 +54,7 @@ func getLogger() log.Logger {
 }
 
 func main() {
-	logger.Info(version.String(), "app", "maalfrid")
+	logger.Info(version.String(), "app", "maalfrid-language-detector")
 
 	if err := rootCmd.Execute(); err != nil {
 		logger.Error(err.Error())

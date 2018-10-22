@@ -6,7 +6,7 @@ import (
 
 	"github.com/kapsteur/franco"
 
-	"github.com/nlnwa/maalfrid-language-detector/api"
+	api "github.com/nlnwa/maalfrid-api/gen/go/maalfrid/service/language"
 )
 
 type maalfridApi struct {
@@ -22,7 +22,7 @@ func WithLimit(n int) serverOption {
 	}
 }
 
-func NewApiServer(opts ...serverOption) api.MaalfridServer {
+func NewApiServer(opts ...serverOption) api.LanguageDetectorServer {
 	srv := new(maalfridApi)
 	// apply functional options
 	for _, opt := range opts {
@@ -41,7 +41,7 @@ func (m *maalfridApi) DetectLanguage(ctx context.Context, req *api.DetectLanguag
 		limit = len(res)
 	}
 	for i := range res[:limit] {
-		code := api.Code(api.Code_value[strings.ToUpper(res[i].Code)])
+		code := api.LanguageCode(api.LanguageCode_value[strings.ToUpper(res[i].Code)])
 		l := &api.Language{Code: code, Count: res[i].Count}
 		languages = append(languages, l)
 	}

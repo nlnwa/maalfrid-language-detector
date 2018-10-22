@@ -50,11 +50,11 @@ func detect(cmd *cobra.Command, args []string) error {
 	client.Dial()
 	defer client.Hangup()
 
-	if langs, err := client.DetectLanguage(text); err != nil {
+	if languages, err := client.DetectLanguage(text); err != nil {
 		return err
 	} else {
-		for _, lang := range langs {
-			fmt.Printf("%s %.3f\n", lang.Code, lang.Count)
+		for _, language := range languages {
+			fmt.Printf("%s %.3f\n", language.Code, language.Count)
 		}
 	}
 

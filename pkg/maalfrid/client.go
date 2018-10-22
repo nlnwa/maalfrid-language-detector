@@ -20,13 +20,13 @@ import (
 	"time"
 
 	"google.golang.org/grpc"
-
-	"github.com/nlnwa/maalfrid-language-detector/api"
 	"github.com/pkg/errors"
+
+	api "github.com/nlnwa/maalfrid-api/gen/go/maalfrid/service/language"
 )
 
 type Client struct {
-	api.MaalfridClient
+	api.LanguageDetectorClient
 	address string
 	conn    *grpc.ClientConn
 }
@@ -58,7 +58,7 @@ func (c *Client) Dial() error {
 	if c.conn, err = grpc.Dial(c.address, grpc.WithInsecure()); err != nil {
 		return errors.Wrapf(err, "failed to dial: %s", c.address)
 	} else {
-		c.MaalfridClient = api.NewMaalfridClient(c.conn)
+		c.LanguageDetectorClient = api.NewLanguageDetectorClient(c.conn)
 		return nil
 	}
 }
@@ -69,7 +69,7 @@ func (c *Client) DetectLanguage(text string) ([]*api.Language, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	if res, err := c.MaalfridClient.DetectLanguage(ctx, req); err != nil {
+	if res, err := c.LanguageDetectorClient.DetectLanguage(ctx, req); err != nil {
 		return nil, err
 	} else {
 		return res.GetLanguages(), nil

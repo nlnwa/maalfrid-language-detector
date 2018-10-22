@@ -28,10 +28,10 @@ var cfgFile string
 // RootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "maalfridctl",
-	Short: "A client to the målfrid service",
-	Long: `Målfrid is a language detection service.
+	Short: "A client to the maalfrid language detection service",
+	Long: `A client to the maalfrid language detection service.
 
-This CLI program is a client to the service.`,
+This CLI program is a client to interact with the service`,
 }
 
 func init() {

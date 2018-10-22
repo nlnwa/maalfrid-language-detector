@@ -24,7 +24,7 @@ import (
 	"github.com/spf13/viper"
 	"google.golang.org/grpc"
 
-	"github.com/nlnwa/maalfrid-language-detector/api"
+	api "github.com/nlnwa/maalfrid-api/gen/go/maalfrid/service/language"
 	"github.com/nlnwa/maalfrid-language-detector/pkg/maalfrid"
 	"github.com/nlnwa/pkg/log"
 )
@@ -38,8 +38,8 @@ type serveConfig struct {
 
 var serveCmd = &cobra.Command{
 	Use:   "serve",
-	Short: "Maalfrid language detector service",
-	Long:  `Maalfrid language detector service`,
+	Short: "Maalfrid language detection service",
+	Long:  `Maalfrid language detection service`,
 	Run: func(cmd *cobra.Command, args []string) {
 		cfg := serveConfig{
 			port:           viper.GetInt("port"),
@@ -80,7 +80,7 @@ func serve(cfg serveConfig) error {
 		logger.Info("API server listening", "port", port)
 	}
 	srv := grpc.NewServer(grpcOpts...)
-	api.RegisterMaalfridServer(srv, maalfrid.NewApiServer(maalfrid.WithLimit(count)))
+	api.RegisterLanguageDetectorServer(srv, maalfrid.NewApiServer(maalfrid.WithLimit(count)))
 
 	return srv.Serve(listener)
 }
