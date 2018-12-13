@@ -26,7 +26,7 @@ import (
 )
 
 var detectCmd = &cobra.Command{
-	Use:   "detect [text]",
+	Use:   "detect",
 	Short: "Detect the language of the text",
 	Long:  `Detect the language of the text`,
 	Run: func(cmd *cobra.Command, args []string) {
