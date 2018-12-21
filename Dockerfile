@@ -6,15 +6,14 @@ COPY . /go/src/github.com/nlnwa/maalfrid-language-detector
 
 RUN cd /go/src/github.com/nlnwa/maalfrid-language-detector \
 && go get github.com/golang/dep/cmd/dep \
-&& dep ensure -vendor-only
-
-RUN VERSION=$(./scripts/git-version.sh) \
-CGO_ENABLED=0 \
+&& dep ensure -vendor-only \
+&& VERSION=$(scripts/git-version.sh) \
+&& CGO_ENABLED=0 \
 go install \
 -a \
 -tags \
 netgo -v \
--ldflags "-w -X github.com/nlnwa/maalfrid-language-detector/pkg/version.Version=$(VERSION)" \
+-ldflags "-w -X github.com/nlnwa/maalfrid-language-detector/pkg/version.Version=${VERSION}" \
 github.com/nlnwa/maalfrid-language-detector/cmd/...
 # -w Omit the DWARF symbol table.
 # -X Set the value of the string variable in importpath named name to value.
