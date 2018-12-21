@@ -14,7 +14,7 @@ go install \
 -a \
 -tags \
 netgo -v \
--ldflags "-w -X github.com/nlnwa/maalfrid-language-detector/version.Version=$(VERSION)" \
+-ldflags "-w -X github.com/nlnwa/maalfrid-language-detector/pkg/version.Version=$(VERSION)" \
 github.com/nlnwa/maalfrid-language-detector/cmd/...
 # -w Omit the DWARF symbol table.
 # -X Set the value of the string variable in importpath named name to value.
